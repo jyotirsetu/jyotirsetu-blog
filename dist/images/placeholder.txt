@@ -1,0 +1,82 @@
+# JyotirSetu Blog Images
+
+## Image Structure
+
+### Horoscopes
+- /images/horoscopes/2024-01-15/weekly-horoscope-featured.jpg
+- /images/horoscopes/2024-01-15/aries-horoscope.jpg
+- /images/horoscopes/2024-01-15/taurus-horoscope.jpg
+- /images/horoscopes/2024-01-15/gemini-horoscope.jpg
+- /images/horoscopes/2024-01-15/cancer-horoscope.jpg
+- /images/horoscopes/2024-01-15/leo-horoscope.jpg
+- /images/horoscopes/2024-01-15/virgo-horoscope.jpg
+- /images/horoscopes/2024-01-15/libra-horoscope.jpg
+- /images/horoscopes/2024-01-15/scorpio-horoscope.jpg
+- /images/horoscopes/2024-01-15/sagittarius-horoscope.jpg
+- /images/horoscopes/2024-01-15/capricorn-horoscope.jpg
+- /images/horoscopes/2024-01-15/aquarius-horoscope.jpg
+- /images/horoscopes/2024-01-15/pisces-horoscope.jpg
+
+### Blog Images
+- /images/blog-images/vedic-astrology/understanding-birth-charts.jpg
+- /images/blog-images/vedic-astrology/birth-chart-analysis.jpg
+- /images/blog-images/palmistry/palmistry-guide.jpg
+- /images/blog-images/palmistry/hand-reading.jpg
+- /images/blog-images/numerology/numerology-power.jpg
+- /images/blog-images/numerology/life-path-numbers.jpg
+- /images/blog-images/spiritual-guidance/inner-peace.jpg
+- /images/blog-images/spiritual-guidance/meditation.jpg
+- /images/blog-images/success-stories/career-transformation.jpg
+- /images/blog-images/success-stories/relationship-success.jpg
+
+### Zodiac Signs
+- /images/zodiac-signs/aries.png
+- /images/zodiac-signs/taurus.png
+- /images/zodiac-signs/gemini.png
+- /images/zodiac-signs/cancer.png
+- /images/zodiac-signs/leo.png
+- /images/zodiac-signs/virgo.png
+- /images/zodiac-signs/libra.png
+- /images/zodiac-signs/scorpio.png
+- /images/zodiac-signs/sagittarius.png
+- /images/zodiac-signs/capricorn.png
+- /images/zodiac-signs/aquarius.png
+- /images/zodiac-signs/pisces.png
+
+### Cosmic Backgrounds
+- /images/cosmic-backgrounds/hero-bg.jpg
+- /images/cosmic-backgrounds/aurora-bg.jpg
+- /images/cosmic-backgrounds/stars-bg.jpg
+- /images/cosmic-backgrounds/galaxy-bg.jpg
+
+## Image Requirements
+
+### Horoscope Images
+- Size: 800x600px
+- Format: JPG
+- Style: Cosmic, mystical, zodiac-themed
+- Colors: Match zodiac sign colors
+
+### Blog Article Images
+- Size: 1200x630px (for social sharing)
+- Format: JPG
+- Style: Professional, astrology-themed
+- Colors: Blue, purple, cosmic themes
+
+### Zodiac Sign Images
+- Size: 200x200px
+- Format: PNG (transparent background)
+- Style: Clean, modern zodiac symbols
+- Colors: Individual zodiac colors
+
+### Cosmic Backgrounds
+- Size: 1920x1080px
+- Format: JPG
+- Style: Space, stars, aurora, galaxy
+- Colors: Deep blues, purples, cosmic themes
+
+## Image Sources
+- Unsplash: https://unsplash.com/s/photos/astrology
+- Pexels: https://www.pexels.com/search/astrology/
+- Freepik: https://www.freepik.com/search?query=astrology
+- Custom zodiac symbols and cosmic backgrounds

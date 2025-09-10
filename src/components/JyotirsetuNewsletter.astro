@@ -1,168 +1,115 @@
 ---
-import { Icon } from 'astro-icon/components';
+// Newsletter signup component
 ---
 
-<section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="jyotirsetu-newsletter">
-      <!-- Newsletter Header -->
-      <div class="text-center mb-8">
-        <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Icon name="tabler:mail" class="h-8 w-8 text-white" />
-        </div>
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          Stay Connected with Cosmic Insights
+<section class="py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Header -->
+      <div class="mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Stay Connected to the Cosmos
         </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Get weekly horoscopes, astrology tips, and spiritual guidance delivered directly to your inbox. 
-          Join thousands of readers who trust JyotirSetu for their cosmic journey.
+        <p class="text-xl text-indigo-200 max-w-2xl mx-auto">
+          Get weekly horoscopes, cosmic insights, and spiritual guidance delivered directly to your inbox. 
+          Join thousands of seekers on their journey to cosmic wisdom.
         </p>
       </div>
-      
-      <!-- Newsletter Benefits -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div class="text-center">
-          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-3">
-            <Icon name="tabler:calendar" class="h-6 w-6 text-blue-600 dark:text-blue-400" />
-          </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Weekly Horoscopes</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Personalized forecasts for all zodiac signs
-          </p>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-3">
-            <Icon name="tabler:book" class="h-6 w-6 text-purple-600 dark:text-purple-400" />
-          </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Exclusive Content</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            In-depth astrology guides and spiritual wisdom
-          </p>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-3">
-            <Icon name="tabler:gift" class="h-6 w-6 text-green-600 dark:text-green-400" />
-          </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Special Offers</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Discounts on consultations and exclusive access
-          </p>
-        </div>
-      </div>
-      
+
       <!-- Newsletter Form -->
-      <form class="max-w-md mx-auto" id="newsletter-form">
-        <div class="flex flex-col sm:flex-row gap-3">
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email address"
-            class="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-            required
-          />
-          <button
-            type="submit"
-            class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            <span class="newsletter-btn-text">Subscribe</span>
-            <span class="newsletter-btn-loading hidden">
-              <div class="jyotirsetu-loading"></div>
-            </span>
-          </button>
-        </div>
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 mb-8">
+        <form class="max-w-md mx-auto" id="newsletter-form">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex-1">
+              <label for="email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                placeholder="Enter your email address"
+              />
+            </div>
+            <button
+              type="submit"
+              class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Subscribe
+            </button>
+          </div>
+        </form>
         
-        <!-- Privacy Notice -->
-        <p class="text-xs text-gray-500 dark:text-gray-400 text-center mt-3">
-          We respect your privacy. Unsubscribe at any time. 
-          <a href="/privacy" class="text-blue-600 dark:text-blue-400 hover:underline">Privacy Policy</a>
-        </p>
-      </form>
-      
-      <!-- Social Proof -->
-      <div class="text-center mt-8">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-          Join <span class="font-semibold text-blue-600 dark:text-blue-400">2,500+</span> cosmic seekers
-        </p>
-        <div class="flex justify-center space-x-4">
-          <div class="flex -space-x-2">
-            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center">
-              <span class="text-xs font-semibold text-white">A</span>
-            </div>
-            <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center">
-              <span class="text-xs font-semibold text-white">B</span>
-            </div>
-            <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center">
-              <span class="text-xs font-semibold text-white">C</span>
-            </div>
-            <div class="w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center">
-              <span class="text-xs font-semibold text-white">D</span>
-            </div>
-            <div class="w-8 h-8 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center">
-              <span class="text-xs font-semibold text-white">E</span>
-            </div>
+        <!-- Benefits -->
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 dark:text-gray-300">
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Weekly Horoscopes
+          </div>
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Cosmic Insights
+          </div>
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Spiritual Guidance
           </div>
         </div>
       </div>
+
+      <!-- Trust Indicators -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold text-white mb-2">5,000+</div>
+          <div class="text-indigo-200">Subscribers</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white mb-2">Weekly</div>
+          <div class="text-indigo-200">Updates</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white mb-2">Free</div>
+          <div class="text-indigo-200">Forever</div>
+        </div>
+      </div>
+
+      <!-- Privacy Note -->
+      <p class="mt-8 text-sm text-indigo-300">
+        We respect your privacy. Unsubscribe at any time. No spam, just cosmic wisdom.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- Newsletter Form Script -->
-<script is:inline>
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('newsletter-form');
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const btnText = submitBtn.querySelector('.newsletter-btn-text');
-    const btnLoading = submitBtn.querySelector('.newsletter-btn-loading');
     
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const email = form.querySelector('input[name="email"]').value;
-      
-      // Show loading state
-      btnText.classList.add('hidden');
-      btnLoading.classList.remove('hidden');
-      submitBtn.disabled = true;
-      
-      try {
-        // Simulate API call (replace with actual newsletter signup endpoint)
-        await new Promise(resolve => setTimeout(resolve, 2000));
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Success state
-        btnText.textContent = 'Subscribed!';
-        btnText.classList.remove('hidden');
-        btnLoading.classList.add('hidden');
-        submitBtn.classList.remove('from-blue-600', 'to-purple-600', 'hover:from-blue-700', 'hover:to-purple-700');
-        submitBtn.classList.add('from-green-600', 'to-green-600');
+        const email = document.getElementById('email').value;
         
-        // Track newsletter signup
-        if (window.JyotirsetuBlog) {
-          window.JyotirsetuBlog.trackBlogInteraction('newsletter_signup', 'blog');
+        // Simple validation
+        if (!email || !email.includes('@')) {
+          alert('Please enter a valid email address.');
+          return;
         }
+        
+        // Here you would typically send the data to your newsletter service
+        // For now, we'll just show a success message
+        alert('Thank you for subscribing! You\'ll receive cosmic insights in your inbox soon.');
         
         // Reset form
         form.reset();
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-          btnText.textContent = 'Subscribe';
-          submitBtn.classList.remove('from-green-600', 'to-green-600');
-          submitBtn.classList.add('from-blue-600', 'to-purple-600', 'hover:from-blue-700', 'hover:to-purple-700');
-          submitBtn.disabled = false;
-        }, 3000);
-        
-      } catch (error) {
-        // Error state
-        btnText.textContent = 'Try Again';
-        btnText.classList.remove('hidden');
-        btnLoading.classList.add('hidden');
-        submitBtn.disabled = false;
-        
-        console.error('Newsletter signup error:', error);
-      }
-    });
+      });
+    }
   });
 </script>

@@ -1,6 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 const navigation = [
   { name: 'Home', href: 'https://www.jyotirsetu.com' },
   { name: 'About', href: 'https://www.jyotirsetu.com/about' },
@@ -60,7 +58,9 @@ const blogCategories = [
         <div class="relative group">
           <button class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
             Categories
-            <Icon name="tabler:chevron-down" class="ml-1 h-4 w-4" />
+            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
           </button>
           <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div class="py-1">
@@ -79,10 +79,11 @@ const blogCategories = [
         <!-- Book Appointment Button -->
         <a
           href="https://www.jyotirsetu.com/ScheduleAppointmentJyotirSetu"
-          data-appointment-btn
           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
         >
-          <Icon name="tabler:calendar" class="mr-2 h-4 w-4" />
+          <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
           Book Appointment
         </a>
       </div>
@@ -95,7 +96,9 @@ const blogCategories = [
           aria-expanded="false"
         >
           <span class="sr-only">Open main menu</span>
-          <Icon name="tabler:menu-2" class="h-6 w-6" />
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
         </button>
       </div>
     </div>
@@ -135,10 +138,11 @@ const blogCategories = [
         <div class="px-3 py-2">
           <a
             href="https://www.jyotirsetu.com/ScheduleAppointmentJyotirSetu"
-            data-appointment-btn
             class="block w-full text-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
           >
-            <Icon name="tabler:calendar" class="inline mr-2 h-4 w-4" />
+            <svg class="inline mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
             Book Appointment
           </a>
         </div>
@@ -146,19 +150,3 @@ const blogCategories = [
     </div>
   </nav>
 </header>
-
-<!-- Mobile Menu Toggle Script -->
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', function() {
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-  });
-</script>
