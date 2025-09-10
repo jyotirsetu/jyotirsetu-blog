@@ -41,16 +41,42 @@ const {
 
 const currentPath = Astro.url.pathname;
 
-// Blog navigation links
-const blogLinks = [
-  { text: 'Home', href: '/' },
-  { text: 'Blog', href: '/blog-home' },
-  { text: 'Vedic Astrology', href: '/blog-home?category=vedic-astrology' },
-  { text: 'Palmistry', href: '/blog-home?category=palmistry' },
-  { text: 'Numerology', href: '/blog-home?category=numerology' },
-  { text: 'Spiritual Guidance', href: '/blog-home?category=spiritual-guidance' },
-  { text: 'Weekly Horoscopes', href: '/blog-home?category=weekly-horoscopes' },
-  { text: 'Success Stories', href: '/blog-home?category=success-stories' },
+// Main website navigation links (matching jyotirsetu.com)
+const mainWebsiteLinks = [
+  {
+    text: 'Home',
+    href: 'https://jyotirsetu.com/',
+  },
+  {
+    text: 'About',
+    href: 'https://jyotirsetu.com/about',
+  },
+  {
+    text: 'Services',
+    links: [
+      { text: 'Kundli Analysis', href: 'https://jyotirsetu.com/services/kundli-analysis' },
+      { text: 'Palmistry', href: 'https://jyotirsetu.com/services/palmistry' },
+      { text: 'Matchmaking (Kundli Milan)', href: 'https://jyotirsetu.com/services/matchmaking' },
+      { text: 'Numerology', href: 'https://jyotirsetu.com/services/numerology' },
+      { text: 'Gemstone Consultation', href: 'https://jyotirsetu.com/services/gemstone-consultation' },
+      { text: 'Career & Finance Guidance', href: 'https://jyotirsetu.com/services/career-finance' },
+      { text: 'Spiritual Guidance', href: 'https://jyotirsetu.com/services/spiritual-guidance' },
+      { text: 'Remedial Solutions', href: 'https://jyotirsetu.com/services/remedial-solutions' },
+      { text: 'Dosha Analysis & Remedies', href: 'https://jyotirsetu.com/services/dosha-analysis' },
+    ],
+  },
+  {
+    text: 'Testimonials',
+    href: 'https://jyotirsetu.com/testimonials',
+  },
+  {
+    text: 'Contact',
+    href: 'https://jyotirsetu.com/contact',
+  },
+  {
+    text: 'Blog',
+    href: '/',
+  },
 ];
 
 const mainWebsiteActions = [
@@ -117,17 +143,48 @@ const mainWebsiteActions = [
         class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
       >
         {
-          blogLinks.map(({ text, href }) => (
-            <li>
-              <a
-                class:list={[
-                  'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
-                  { 'aw-link-active': href === currentPath },
-                ]}
-                href={href}
-              >
-                {text}
-              </a>
+          mainWebsiteLinks.map(({ text, href, links }) => (
+            <li class={links?.length ? 'dropdown' : ''}>
+              {links?.length ? (
+                <>
+                  <button
+                    type="button"
+                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                  >
+                    {text}{' '}
+                    <svg class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    {links.map(({ text: text2, href: href2 }) => (
+                      <li>
+                        <a
+                          class:list={[
+                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                            { 'aw-link-active': href2 === currentPath },
+                          ]}
+                          href={href2}
+                          target={href2.startsWith('http') ? '_blank' : '_self'}
+                        >
+                          {text2}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <a
+                  class:list={[
+                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
+                    { 'aw-link-active': href === currentPath },
+                  ]}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : '_self'}
+                >
+                  {text}
+                </a>
+              )}
             </li>
           ))
         }
