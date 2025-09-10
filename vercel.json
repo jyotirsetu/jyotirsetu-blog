@@ -2,13 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "astro",
-  "redirects": [
-    {
-      "source": "/(.*)\\.html",
-      "destination": "/$1",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/images/(.*)",
@@ -40,13 +33,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "src/pages/api/**/*.ts": {
-      "maxDuration": 30
-    }
-  },
-  "env": {
-    "SITE_URL": "https://blog.jyotirsetu.com"
-  }
+  ]
 }
