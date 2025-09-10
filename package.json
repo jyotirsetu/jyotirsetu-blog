@@ -1,0 +1,44 @@
+{
+  "name": "jyotirsetu-blog",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "JyotirSetu Cosmic Insights Blog - Astrology, Palmistry & Numerology",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.4",
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "astro": "^4.0.0",
+    "astro-icon": "^0.8.1",
+    "lodash.merge": "^4.6.2",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.7"
+  },
+  "keywords": [
+    "astrology",
+    "vedic-astrology",
+    "palmistry",
+    "numerology",
+    "horoscopes",
+    "spiritual-guidance",
+    "jyotirsetu",
+    "cosmic-insights",
+    "blog"
+  ],
+  "author": "Astrologer Punita Sharma",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jyotirsetu/blog"
+  },
+  "homepage": "https://blog.jyotirsetu.com"
+}

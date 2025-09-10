@@ -1,0 +1,134 @@
+---
+// JyotirSetu Blog - Main Index Page
+import JyotirsetuBlogLayout from '~/layouts/JyotirsetuBlogLayout.astro';
+import JyotirsetuBlogHero from '~/components/JyotirsetuBlogHero.astro';
+import JyotirsetuBlogGrid from '~/components/JyotirsetuBlogGrid.astro';
+import JyotirsetuWeeklyHoroscope from '~/components/JyotirsetuWeeklyHoroscope.astro';
+import JyotirsetuNewsletter from '~/components/JyotirsetuNewsletter.astro';
+
+// Sample blog posts data
+const featuredPosts = [
+  {
+    title: "Understanding Vedic Astrology: Your Cosmic Blueprint",
+    excerpt: "Discover the ancient wisdom of Vedic Astrology and how it can guide your life journey with precision and clarity.",
+    image: "/images/blog-images/vedic-astrology/understanding-birth-charts.jpg",
+    category: "Vedic Astrology",
+    author: "Astrologer Punita Sharma",
+    publishDate: "2024-01-15",
+    readingTime: 8,
+    slug: "understanding-vedic-astrology"
+  },
+  {
+    title: "Palmistry Guide: Reading Your Life Lines",
+    excerpt: "Learn the art of palmistry and discover what your hands reveal about your personality, career, and relationships.",
+    image: "/images/blog-images/palmistry/palmistry-guide.jpg",
+    category: "Palmistry",
+    author: "Astrologer Punita Sharma",
+    publishDate: "2024-01-12",
+    readingTime: 6,
+    slug: "palmistry-guide-beginners"
+  },
+  {
+    title: "Numerology: The Power of Numbers in Your Life",
+    excerpt: "Explore how numbers influence your life path, personality, and destiny through the ancient science of numerology.",
+    image: "/images/blog-images/numerology/numerology-power.jpg",
+    category: "Numerology",
+    author: "Astrologer Punita Sharma",
+    publishDate: "2024-01-10",
+    readingTime: 7,
+    slug: "numerology-power-numbers"
+  }
+];
+
+const recentPosts = [
+  {
+    title: "Weekly Horoscope: January 15-21, 2024",
+    excerpt: "Your cosmic forecast for this week. Discover what the stars have in store for all zodiac signs.",
+    image: "/images/horoscopes/2024-01-15/weekly-horoscope-featured.jpg",
+    category: "Weekly Horoscopes",
+    author: "Astrologer Punita Sharma",
+    publishDate: "2024-01-15",
+    readingTime: 5,
+    slug: "weekly-horoscope-january-15-21-2024"
+  },
+  {
+    title: "Spiritual Guidance: Finding Your Inner Peace",
+    excerpt: "Learn powerful meditation techniques and spiritual practices to find inner peace and balance in your daily life.",
+    image: "/images/blog-images/spiritual-guidance/inner-peace.jpg",
+    category: "Spiritual Guidance",
+    author: "Astrologer Punita Sharma",
+    publishDate: "2024-01-08",
+    readingTime: 9,
+    slug: "spiritual-guidance-inner-peace"
+  },
+  {
+    title: "Success Story: How Astrology Changed My Career Path",
+    excerpt: "Read how our client discovered their true calling through Vedic astrology and transformed their professional life.",
+    image: "/images/blog-images/success-stories/career-transformation.jpg",
+    category: "Success Stories",
+    author: "Client Testimonial",
+    publishDate: "2024-01-05",
+    readingTime: 6,
+    slug: "success-story-career-transformation"
+  }
+];
+
+const metadata = {
+  title: 'JyotirSetu Cosmic Insights Blog - Astrology, Palmistry & Numerology',
+  description: 'Discover cosmic insights, weekly horoscopes, and spiritual guidance from JyotirSetu Astrology Blog. Expert astrology, palmistry, and numerology content.',
+  openGraph: {
+    title: 'JyotirSetu Cosmic Insights Blog',
+    description: 'Discover cosmic insights, weekly horoscopes, and spiritual guidance from JyotirSetu Astrology Blog.',
+    type: 'website',
+    url: 'https://blog.jyotirsetu.com',
+    image: '/images/cosmic-backgrounds/hero-bg.jpg'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JyotirSetu Cosmic Insights Blog',
+    description: 'Discover cosmic insights, weekly horoscopes, and spiritual guidance from JyotirSetu Astrology Blog.',
+    image: '/images/cosmic-backgrounds/hero-bg.jpg'
+  }
+};
+---
+
+<JyotirsetuBlogLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <JyotirsetuBlogHero />
+
+  <!-- Featured Posts Section -->
+  <section class="py-16 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">
+          Featured Cosmic Insights
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          Discover the most popular articles and guides from our expert astrologers
+        </p>
+      </div>
+      <JyotirsetuBlogGrid posts={featuredPosts} />
+    </div>
+  </section>
+
+  <!-- Weekly Horoscope Section -->
+  <JyotirsetuWeeklyHoroscope />
+
+  <!-- Recent Posts Section -->
+  <section class="py-16 bg-white dark:bg-slate-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">
+          Latest Cosmic Wisdom
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          Stay updated with our latest articles, insights, and spiritual guidance
+        </p>
+      </div>
+      <JyotirsetuBlogGrid posts={recentPosts} />
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <JyotirsetuNewsletter />
+</JyotirsetuBlogLayout>

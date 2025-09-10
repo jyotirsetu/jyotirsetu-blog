@@ -1,0 +1,360 @@
+/* JyotirSetu Blog Custom Styles */
+
+/* CSS Variables for JyotirSetu Brand Colors */
+:root {
+  --jyotirsetu-primary: #3b82f6;
+  --jyotirsetu-primary-dark: #2563eb;
+  --jyotirsetu-secondary: #8b5cf6;
+  --jyotirsetu-accent: #ec4899;
+  --jyotirsetu-gold: #f59e0b;
+  --jyotirsetu-cosmic-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --jyotirsetu-text: #1f2937;
+  --jyotirsetu-text-muted: #6b7280;
+  --jyotirsetu-bg: #ffffff;
+  --jyotirsetu-bg-light: #f8fafc;
+}
+
+/* Dark mode variables */
+.dark {
+  --jyotirsetu-text: #f9fafb;
+  --jyotirsetu-text-muted: #d1d5db;
+  --jyotirsetu-bg: #111827;
+  --jyotirsetu-bg-light: #1f2937;
+}
+
+/* Global Blog Styles */
+.jyotirsetu-blog {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Blog Header Styles */
+.jyotirsetu-blog-header {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* Blog Hero Section */
+.jyotirsetu-blog-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.jyotirsetu-blog-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+  opacity: 0.3;
+}
+
+/* Blog Card Styles */
+.jyotirsetu-blog-card {
+  background: var(--jyotirsetu-bg);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.jyotirsetu-blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--jyotirsetu-primary);
+}
+
+.dark .jyotirsetu-blog-card {
+  background: var(--jyotirsetu-bg-light);
+  border-color: rgba(75, 85, 99, 0.3);
+}
+
+/* Zodiac Sign Cards */
+.jyotirsetu-zodiac-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.jyotirsetu-zodiac-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.jyotirsetu-zodiac-card:hover::before {
+  opacity: 1;
+}
+
+.jyotirsetu-zodiac-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--jyotirsetu-primary);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+}
+
+/* Zodiac Sign Colors */
+.jyotirsetu-aries { border-left: 4px solid #ff6b6b; }
+.jyotirsetu-taurus { border-left: 4px solid #4ecdc4; }
+.jyotirsetu-gemini { border-left: 4px solid #45b7d1; }
+.jyotirsetu-cancer { border-left: 4px solid #96ceb4; }
+.jyotirsetu-leo { border-left: 4px solid #feca57; }
+.jyotirsetu-virgo { border-left: 4px solid #ff9ff3; }
+.jyotirsetu-libra { border-left: 4px solid #54a0ff; }
+.jyotirsetu-scorpio { border-left: 4px solid #5f27cd; }
+.jyotirsetu-sagittarius { border-left: 4px solid #00d2d3; }
+.jyotirsetu-capricorn { border-left: 4px solid #ff9f43; }
+.jyotirsetu-aquarius { border-left: 4px solid #0abde3; }
+.jyotirsetu-pisces { border-left: 4px solid #a55eea; }
+
+/* Blog Typography */
+.jyotirsetu-blog-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--jyotirsetu-primary) 0%, var(--jyotirsetu-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.jyotirsetu-blog-subtitle {
+  font-size: 1.25rem;
+  color: var(--jyotirsetu-text-muted);
+  line-height: 1.6;
+}
+
+/* Category Badges */
+.jyotirsetu-category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--jyotirsetu-primary) 0%, var(--jyotirsetu-secondary) 100%);
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.jyotirsetu-category-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Blog Buttons */
+.jyotirsetu-blog-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--jyotirsetu-primary) 0%, var(--jyotirsetu-secondary) 100%);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.jyotirsetu-blog-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  color: white;
+}
+
+.jyotirsetu-blog-btn-outline {
+  background: transparent;
+  border: 2px solid var(--jyotirsetu-primary);
+  color: var(--jyotirsetu-primary);
+}
+
+.jyotirsetu-blog-btn-outline:hover {
+  background: var(--jyotirsetu-primary);
+  color: white;
+}
+
+/* Blog Grid Layout */
+.jyotirsetu-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.jyotirsetu-horoscope-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .jyotirsetu-blog-title {
+    font-size: 2rem;
+  }
+  
+  .jyotirsetu-blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .jyotirsetu-horoscope-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jyotirsetu-horoscope-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Blog Post Content */
+.jyotirsetu-blog-content {
+  line-height: 1.8;
+  color: var(--jyotirsetu-text);
+}
+
+.jyotirsetu-blog-content h1,
+.jyotirsetu-blog-content h2,
+.jyotirsetu-blog-content h3,
+.jyotirsetu-blog-content h4,
+.jyotirsetu-blog-content h5,
+.jyotirsetu-blog-content h6 {
+  color: var(--jyotirsetu-text);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.jyotirsetu-blog-content h2 {
+  font-size: 1.875rem;
+  border-bottom: 2px solid var(--jyotirsetu-primary);
+  padding-bottom: 0.5rem;
+}
+
+.jyotirsetu-blog-content h3 {
+  font-size: 1.5rem;
+  color: var(--jyotirsetu-primary);
+}
+
+.jyotirsetu-blog-content a {
+  color: var(--jyotirsetu-primary);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.jyotirsetu-blog-content a:hover {
+  color: var(--jyotirsetu-primary-dark);
+}
+
+.jyotirsetu-blog-content blockquote {
+  border-left: 4px solid var(--jyotirsetu-primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  background: rgba(59, 130, 246, 0.05);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Loading Animation */
+.jyotirsetu-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--jyotirsetu-primary);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Cosmic Background Effects */
+.jyotirsetu-cosmic-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+.jyotirsetu-cosmic-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+  animation: cosmicFloat 20s ease-in-out infinite;
+}
+
+@keyframes cosmicFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Scroll Animations */
+.jyotirsetu-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.jyotirsetu-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Newsletter Signup */
+.jyotirsetu-newsletter {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Social Share Buttons */
+.jyotirsetu-social-share {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.jyotirsetu-social-share a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--jyotirsetu-bg-light);
+  color: var(--jyotirsetu-text-muted);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.jyotirsetu-social-share a:hover {
+  background: var(--jyotirsetu-primary);
+  color: white;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,81 @@
+---
+import '~/styles/jyotirsetu-blog.css';
+
+import JyotirsetuBlogMeta from '~/components/JyotirsetuBlogMeta.astro';
+import JyotirsetuBlogFavicons from '~/components/JyotirsetuBlogFavicons.astro';
+import JyotirsetuBlogStyles from '~/components/JyotirsetuBlogStyles.astro';
+import JyotirsetuBlogHeader from '~/components/JyotirsetuBlogHeader.astro';
+import JyotirsetuBlogFooter from '~/components/JyotirsetuBlogFooter.astro';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata = {} } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr" class="2xl:text-[20px]">
+  <head>
+    <JyotirsetuBlogMeta />
+    <JyotirsetuBlogFavicons />
+    <JyotirsetuBlogStyles />
+    <Metadata {...metadata} />
+  </head>
+
+  <body class="antialiased text-default bg-page tracking-tight">
+    <JyotirsetuBlogHeader />
+    
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    
+    <JyotirsetuBlogFooter />
+    
+    <!-- Jyotirsetu Blog Scripts -->
+    <script is:inline>
+      // Jyotirsetu Blog Analytics and Interactions
+      (function() {
+        'use strict';
+        
+        // Track blog interactions
+        function trackBlogInteraction(type, data) {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', type, {
+              'event_category': 'Blog',
+              'event_label': data,
+              'value': 1
+            });
+          }
+        }
+        
+        // Track horoscope views
+        document.addEventListener('DOMContentLoaded', function() {
+          const horoscopeElements = document.querySelectorAll('[data-zodiac-sign]');
+          horoscopeElements.forEach(element => {
+            element.addEventListener('click', function() {
+              const sign = this.getAttribute('data-zodiac-sign');
+              trackBlogInteraction('horoscope_view', sign);
+            });
+          });
+          
+          // Track appointment button clicks
+          const appointmentButtons = document.querySelectorAll('[data-appointment-btn]');
+          appointmentButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              trackBlogInteraction('appointment_click', 'blog');
+            });
+          });
+        });
+        
+        // Export for manual use
+        window.JyotirsetuBlog = {
+          trackBlogInteraction
+        };
+        
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+---
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata = {} } = Astro.props;
+
+const {
+  title = 'JyotirSetu Cosmic Insights Blog - Astrology, Palmistry & Numerology',
+  description = 'Discover cosmic insights, weekly horoscopes, and spiritual guidance from JyotirSetu Astrology Blog. Expert astrology, palmistry, and numerology content.',
+  robots = { index: true, follow: true },
+  openGraph = {},
+  canonical,
+} = metadata;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content="Astro" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="robots" content={`${robots.index ? 'index' : 'noindex'}, ${robots.follow ? 'follow' : 'nofollow'}`} />
+
+<!-- Canonical URL -->
+{canonical && <link rel="canonical" href={canonical} />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={openGraph.type || 'website'} />
+<meta property="og:url" content={openGraph.url || Astro.url} />
+<meta property="og:title" content={openGraph.title || title} />
+<meta property="og:description" content={openGraph.description || description} />
+<meta property="og:site_name" content={openGraph.site_name || 'JyotirSetu Cosmic Insights Blog'} />
+{openGraph.images && openGraph.images.map((image) => (
+  <meta property="og:image" content={image.url} />
+  {image.width && <meta property="og:image:width" content={image.width} />}
+  {image.height && <meta property="og:image:height" content={image.height} />}
+  {image.alt && <meta property="og:image:alt" content={image.alt} />}
+))}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={openGraph.url || Astro.url} />
+<meta property="twitter:title" content={openGraph.title || title} />
+<meta property="twitter:description" content={openGraph.description || description} />
+{openGraph.images && openGraph.images[0] && (
+  <meta property="twitter:image" content={openGraph.images[0].url} />
+)}
+
+<!-- Additional Meta Tags -->
+<meta name="author" content="Astrologer Punita Sharma" />
+<meta name="keywords" content="astrology, vedic astrology, palmistry, numerology, horoscopes, spiritual guidance, jyotirsetu, cosmic insights" />
+<meta name="theme-color" content="#3b82f6" />
+
+<!-- Preconnect to external domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://www.jyotirsetu.com" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "JyotirSetu Cosmic Insights Blog",
+  "description": description,
+  "url": Astro.url,
+  "publisher": {
+    "@type": "Organization",
+    "name": "JyotirSetu",
+    "url": "https://www.jyotirsetu.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.jyotirsetu.com/JyotirSetu%20Full%20Logo%20Transparent.png"
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Astrologer Punita Sharma",
+    "url": "https://www.jyotirsetu.com/about"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url
+  }
+})} />

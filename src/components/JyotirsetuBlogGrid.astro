@@ -1,0 +1,115 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  posts: Array<{
+    title: string;
+    excerpt: string;
+    image: string;
+    category: string;
+    author: string;
+    publishDate: string;
+    readingTime: number;
+    slug: string;
+  }>;
+}
+
+const { posts } = Astro.props;
+
+const getCategoryColor = (category: string) => {
+  const colors = {
+    'Vedic Astrology': 'from-blue-500 to-blue-600',
+    'Palmistry': 'from-purple-500 to-purple-600',
+    'Numerology': 'from-pink-500 to-pink-600',
+    'Weekly Horoscopes': 'from-yellow-500 to-orange-500',
+    'Spiritual Guidance': 'from-green-500 to-green-600',
+    'Success Stories': 'from-indigo-500 to-indigo-600',
+  };
+  return colors[category] || 'from-gray-500 to-gray-600';
+};
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+};
+---
+
+<div class="jyotirsetu-blog-grid">
+  {posts.map((post) => (
+    <article class="jyotirsetu-blog-card group">
+      <!-- Image -->
+      <div class="relative overflow-hidden">
+        <img 
+          src={post.image} 
+          alt={post.title}
+          class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div class="absolute top-4 left-4">
+          <span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getCategoryColor(post.category)}`}>
+            {post.category}
+          </span>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+      
+      <!-- Content -->
+      <div class="p-6">
+        <!-- Meta Info -->
+        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+          <Icon name="tabler:calendar" class="h-4 w-4 mr-1" />
+          <time datetime={post.publishDate}>{formatDate(post.publishDate)}</time>
+          <span class="mx-2">•</span>
+          <Icon name="tabler:clock" class="h-4 w-4 mr-1" />
+          <span>{post.readingTime} min read</span>
+        </div>
+        
+        <!-- Title -->
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+          <a href={`/posts/${post.slug}`} class="hover:underline">
+            {post.title}
+          </a>
+        </h3>
+        
+        <!-- Excerpt -->
+        <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+          {post.excerpt}
+        </p>
+        
+        <!-- Author -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+              <Icon name="tabler:user" class="h-4 w-4 text-white" />
+            </div>
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+              {post.author}
+            </span>
+          </div>
+          
+          <!-- Read More -->
+          <a 
+            href={`/posts/${post.slug}`}
+            class="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+          >
+            Read More
+            <Icon name="tabler:arrow-right" class="ml-1 h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

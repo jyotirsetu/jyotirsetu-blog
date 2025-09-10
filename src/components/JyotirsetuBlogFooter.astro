@@ -1,0 +1,197 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const footerLinks = {
+  services: [
+    { name: 'Kundli Analysis', href: 'https://www.jyotirsetu.com/services/kundli-analysis' },
+    { name: 'Palmistry', href: 'https://www.jyotirsetu.com/services/palmistry' },
+    { name: 'Matchmaking', href: 'https://www.jyotirsetu.com/services/matchmaking' },
+    { name: 'Numerology', href: 'https://www.jyotirsetu.com/services/numerology' },
+    { name: 'Gemstone Consultation', href: 'https://www.jyotirsetu.com/services/gemstone-consultation' },
+  ],
+  blog: [
+    { name: 'Weekly Horoscopes', href: '/horoscopes' },
+    { name: 'Vedic Astrology', href: '/vedic-astrology' },
+    { name: 'Palmistry', href: '/palmistry' },
+    { name: 'Numerology', href: '/numerology' },
+    { name: 'Spiritual Guidance', href: '/spiritual-guidance' },
+  ],
+  company: [
+    { name: 'About Us', href: 'https://www.jyotirsetu.com/about' },
+    { name: 'Success Stories', href: 'https://www.jyotirsetu.com/success-stories' },
+    { name: 'Testimonials', href: 'https://www.jyotirsetu.com/testimonials' },
+    { name: 'Contact', href: 'https://www.jyotirsetu.com/contact' },
+    { name: 'Book Appointment', href: 'https://www.jyotirsetu.com/ScheduleAppointmentJyotirSetu' },
+  ],
+  support: [
+    { name: 'FAQ', href: 'https://www.jyotirsetu.com/#faqs' },
+    { name: 'Free Resources', href: 'https://www.jyotirsetu.com/resources' },
+    { name: 'Privacy Policy', href: 'https://www.jyotirsetu.com/privacy' },
+    { name: 'Terms & Conditions', href: 'https://www.jyotirsetu.com/terms' },
+  ]
+};
+
+const socialLinks = [
+  { name: 'Instagram', href: 'https://www.instagram.com/jyotirsetu', icon: 'tabler:brand-instagram' },
+  { name: 'Facebook', href: '#', icon: 'tabler:brand-facebook' },
+  { name: 'Google', href: 'https://g.page/r/CXjH6HavONOeEBM/review', icon: 'tabler:brand-google' },
+  { name: 'X', href: '#', icon: 'tabler:brand-x' },
+];
+---
+
+<footer class="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 border-t border-blue-100 dark:border-gray-700">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Brand Section -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center space-x-3 mb-4">
+          <img 
+            src="https://www.jyotirsetu.com/JyotirSetu%20Full%20Logo%20Transparent.png" 
+            alt="JyotirSetu Logo" 
+            class="h-12 w-auto"
+          />
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">JyotirSetu</h3>
+            <p class="text-sm text-blue-600 dark:text-blue-400">Cosmic Insights Blog</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          Discover cosmic insights, astrology guides, and spiritual wisdom from our expert astrologers.
+        </p>
+        
+        <!-- Contact Info -->
+        <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+          <div class="flex items-center space-x-2">
+            <Icon name="tabler:phone" class="h-4 w-4 text-blue-600 dark:text-blue-400" />
+            <span>+91 98765 43210</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <Icon name="tabler:mail" class="h-4 w-4 text-blue-600 dark:text-blue-400" />
+            <span>info@jyotirsetu.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+          Our Services
+        </h3>
+        <ul class="space-y-2">
+          {footerLinks.services.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Blog Categories -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+          Blog Categories
+        </h3>
+        <ul class="space-y-2">
+          {footerLinks.blog.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company & Support -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+          Company
+        </h3>
+        <ul class="space-y-2">
+          {footerLinks.company.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 mt-6">
+          Support
+        </h3>
+        <ul class="space-y-2">
+          {footerLinks.support.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <div class="max-w-md mx-auto text-center">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+          Stay Connected with Cosmic Insights
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          Get weekly horoscopes and astrology tips delivered to your inbox.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-2">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
+            required
+          />
+          <button
+            type="submit"
+            class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-full hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Social Links & Copyright -->
+    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex space-x-6 mb-4 md:mb-0">
+          {socialLinks.map((social) => (
+            <a
+              href={social.href}
+              class="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              aria-label={social.name}
+            >
+              <Icon name={social.icon} class="h-5 w-5" />
+            </a>
+          ))}
+        </div>
+        <div class="text-sm text-gray-500 dark:text-gray-400">
+          © 2025 <a href="https://www.jyotirsetu.com" class="text-blue-600 dark:text-blue-400 hover:underline">JyotirSetu</a>. 
+          All rights reserved. Guiding you with insights and clarity.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
