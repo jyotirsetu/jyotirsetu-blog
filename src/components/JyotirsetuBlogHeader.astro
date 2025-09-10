@@ -1,152 +1,183 @@
 ---
-const navigation = [
-  { name: 'Home', href: 'https://www.jyotirsetu.com' },
-  { name: 'About', href: 'https://www.jyotirsetu.com/about' },
-  { name: 'Services', href: 'https://www.jyotirsetu.com/#services' },
-  { name: 'Blog', href: '/', current: true },
-  { name: 'Testimonials', href: 'https://www.jyotirsetu.com/testimonials' },
-  { name: 'Contact', href: 'https://www.jyotirsetu.com/contact' },
+import { Icon } from 'astro-icon/components';
+import Logo from './JyotirsetuBlogLogo.astro';
+import ToggleTheme from './JyotirsetuBlogToggleTheme.astro';
+import ToggleMenu from './JyotirsetuBlogToggleMenu.astro';
+import Button from './JyotirsetuBlogButton.astro';
+
+import { getHomePermalink } from '../utils/permalinks';
+import { trimSlash, getAsset } from '../utils/permalinks';
+import type { CallToAction } from '../types';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
+interface MenuLink extends Link {
+  links?: Array<MenuLink>;
+}
+
+export interface Props {
+  id?: string;
+  links?: Array<MenuLink>;
+  actions?: Array<CallToAction>;
+  isSticky?: boolean;
+  isDark?: boolean;
+  isFullWidth?: boolean;
+  showToggleTheme?: boolean;
+  showRssFeed?: boolean;
+  position?: string;
+}
+
+const {
+  id = 'header',
+  links = [],
+  actions = [],
+  isSticky = false,
+  isDark = false,
+  isFullWidth = false,
+  showToggleTheme = true,
+  showRssFeed = false,
+  position = 'center',
+} = Astro.props;
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+
+// Blog navigation links
+const blogLinks = [
+  { text: 'Home', href: '/' },
+  { text: 'Blog', href: '/blog-home' },
+  { text: 'Vedic Astrology', href: '/blog-home?category=vedic-astrology' },
+  { text: 'Palmistry', href: '/blog-home?category=palmistry' },
+  { text: 'Numerology', href: '/blog-home?category=numerology' },
+  { text: 'Spiritual Guidance', href: '/blog-home?category=spiritual-guidance' },
+  { text: 'Weekly Horoscopes', href: '/blog-home?category=weekly-horoscopes' },
+  { text: 'Success Stories', href: '/blog-home?category=success-stories' },
 ];
 
-const blogCategories = [
-  { name: 'Weekly Horoscopes', href: '/horoscopes' },
-  { name: 'Vedic Astrology', href: '/vedic-astrology' },
-  { name: 'Palmistry', href: '/palmistry' },
-  { name: 'Numerology', href: '/numerology' },
-  { name: 'Spiritual Guidance', href: '/spiritual-guidance' },
-  { name: 'Success Stories', href: '/success-stories' },
+const mainWebsiteActions = [
+  {
+    text: 'Book Consultation',
+    href: 'https://jyotirsetu.com/contact',
+    target: '_blank',
+    variant: 'primary' as const,
+  },
 ];
 ---
 
-<header class="bg-white dark:bg-gray-900 shadow-lg border-b border-blue-100 dark:border-gray-700">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-    <div class="flex justify-between items-center py-4">
-      <!-- Logo and Brand -->
-      <div class="flex items-center">
-        <a href="https://www.jyotirsetu.com" class="flex items-center space-x-3">
-          <div class="relative">
-            <img 
-              src="https://www.jyotirsetu.com/JyotirSetu%20Full%20Logo%20Transparent.png" 
-              alt="JyotirSetu Logo" 
-              class="h-12 w-auto"
-            />
-            <div class="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-          </div>
-          <div class="hidden sm:block">
-            <h1 class="text-xl font-bold text-gray-900 dark:text-white">JyotirSetu</h1>
-            <p class="text-sm text-blue-600 dark:text-blue-400">Cosmic Insights Blog</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Desktop Navigation -->
-      <div class="hidden lg:flex lg:items-center lg:space-x-8">
-        {navigation.map((item) => (
+<header
+  class:list={[
+    { sticky: isSticky, relative: !isSticky, dark: isDark },
+    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+  ]}
+  {...isSticky ? { 'data-aw-sticky-header': true } : {}}
+  {...id ? { id } : {}}
+>
+  <div class="absolute inset-0"></div>
+  <div
+    class:list={[
+      'relative text-default py-1 px-3 md:px-6 mx-auto w-full',
+      {
+        'md:flex md:justify-between': position !== 'center',
+      },
+      {
+        'md:grid md:grid-cols-3 md:items-center': position === 'center',
+      },
+      {
+        'max-w-7xl': !isFullWidth,
+      },
+    ]}
+  >
+    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
+      <a class="flex items-center" href={getHomePermalink()}>
+        <Logo />
+      </a>
+      <!-- Mobile Header Buttons - Always Visible -->
+      <div class="flex items-center md:hidden">
+        <div class="flex items-center mr-2">
+          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6" />}
+          <!-- Call Icon -->
           <a
-            href={item.href}
-            class={`text-sm font-medium transition-colors duration-200 ${
-              item.current 
-                ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1' 
-                : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-            }`}
+            href="tel:+919266991298"
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center ml-2"
+            aria-label="Call Us"
+            title="Call +91 9266991298"
           >
-            {item.name}
+            <Icon name="tabler:phone-call" class="w-5 h-5" />
           </a>
-        ))}
-        
-        <!-- Blog Categories Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
-            Categories
-            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-1">
-              {blogCategories.map((category) => (
-                <a
-                  href={category.href}
-                  class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                >
-                  {category.name}
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
-
-        <!-- Book Appointment Button -->
-        <a
-          href="https://www.jyotirsetu.com/ScheduleAppointmentJyotirSetu"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-        >
-          <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Book Appointment
-        </a>
-      </div>
-
-      <!-- Mobile menu button -->
-      <div class="lg:hidden">
-        <button
-          type="button"
-          class="mobile-menu-button bg-white dark:bg-gray-800 p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+        <ToggleMenu />
       </div>
     </div>
-
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-menu hidden lg:hidden border-t border-gray-200 dark:border-gray-700">
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        {navigation.map((item) => (
-          <a
-            href={item.href}
-            class={`block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 ${
-              item.current 
-                ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800' 
-                : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-            }`}
-          >
-            {item.name}
-          </a>
-        ))}
-        
-        <!-- Mobile Blog Categories -->
-        <div class="px-3 py-2">
-          <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Blog Categories</p>
-          <div class="mt-2 space-y-1">
-            {blogCategories.map((category) => (
+    <nav
+      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      aria-label="Main navigation"
+    >
+      <ul
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+      >
+        {
+          blogLinks.map(({ text, href }) => (
+            <li>
               <a
-                href={category.href}
-                class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200"
+                class:list={[
+                  'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
+                  { 'aw-link-active': href === currentPath },
+                ]}
+                href={href}
               >
-                {category.name}
+                {text}
               </a>
-            ))}
-          </div>
-        </div>
-
-        <!-- Mobile Book Appointment Button -->
-        <div class="px-3 py-2">
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div
+      class:list={[
+        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
+        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
+      ]}
+    >
+      <div class="items-center flex justify-between w-full md:w-auto">
+        <div class="flex">
+          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
+          {
+            showRssFeed && (
+              <a
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                aria-label="RSS Feed"
+                href={getAsset('/rss.xml')}
+              >
+                <Icon name="tabler:rss" class="w-5 h-5" />
+              </a>
+            )
+          }
+          <!-- Call Icon - Desktop Only -->
           <a
-            href="https://www.jyotirsetu.com/ScheduleAppointmentJyotirSetu"
-            class="block w-full text-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
+            href="tel:+919266991298"
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 items-center ml-2 hidden md:inline-flex"
+            aria-label="Call Us"
+            title="Call +91 9266991298"
           >
-            <svg class="inline mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            Book Appointment
+            <Icon name="tabler:phone-call" class="w-5 h-5" />
           </a>
         </div>
+        {
+          mainWebsiteActions?.length ? (
+            <span class="ml-4 rtl:ml-0 rtl:mr-4">
+              {mainWebsiteActions.map((btnProps) => (
+                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
+              ))}
+            </span>
+          ) : (
+            ''
+          )
+        }
       </div>
     </div>
-  </nav>
+  </div>
 </header>
