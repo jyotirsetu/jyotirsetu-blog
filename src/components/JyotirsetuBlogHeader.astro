@@ -1,13 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
 import Logo from './JyotirsetuBlogLogo.astro';
 import ToggleTheme from './JyotirsetuBlogToggleTheme.astro';
 import ToggleMenu from './JyotirsetuBlogToggleMenu.astro';
 import Button from './JyotirsetuBlogButton.astro';
-
-import { getHomePermalink } from '../utils/permalinks';
-import { trimSlash, getAsset } from '../utils/permalinks';
-import type { CallToAction } from '../types';
 
 interface Link {
   text?: string;
@@ -44,7 +39,7 @@ const {
   position = 'center',
 } = Astro.props;
 
-const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const currentPath = Astro.url.pathname;
 
 // Blog navigation links
 const blogLinks = [
@@ -92,7 +87,7 @@ const mainWebsiteActions = [
     ]}
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink()}>
+      <a class="flex items-center" href="/">
         <Logo />
       </a>
       <!-- Mobile Header Buttons - Always Visible -->
@@ -106,7 +101,9 @@ const mainWebsiteActions = [
             aria-label="Call Us"
             title="Call +91 9266991298"
           >
-            <Icon name="tabler:phone-call" class="w-5 h-5" />
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
           </a>
         </div>
         <ToggleMenu />
@@ -150,9 +147,11 @@ const mainWebsiteActions = [
               <a
                 class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                 aria-label="RSS Feed"
-                href={getAsset('/rss.xml')}
+                href="/rss.xml"
               >
-                <Icon name="tabler:rss" class="w-5 h-5" />
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+                </svg>
               </a>
             )
           }
@@ -163,7 +162,9 @@ const mainWebsiteActions = [
             aria-label="Call Us"
             title="Call +91 9266991298"
           >
-            <Icon name="tabler:phone-call" class="w-5 h-5" />
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
           </a>
         </div>
         {

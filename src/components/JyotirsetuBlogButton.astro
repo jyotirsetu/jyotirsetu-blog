@@ -1,6 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 export interface Props {
   text?: string;
   href?: string;
@@ -8,8 +6,6 @@ export interface Props {
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   class?: string;
-  icon?: string;
-  iconPosition?: 'left' | 'right';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
 }
@@ -21,8 +17,6 @@ const {
   variant = 'primary',
   size = 'md',
   class: className = '',
-  icon,
-  iconPosition = 'left',
   disabled = false,
   type = 'button',
 } = Astro.props;
@@ -42,8 +36,6 @@ const sizeClasses = {
 };
 
 const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-
-const iconElement = icon ? <Icon name={icon} class="w-4 h-4" /> : null;
 ---
 
 {href ? (
@@ -53,9 +45,7 @@ const iconElement = icon ? <Icon name={icon} class="w-4 h-4" /> : null;
     class={classes}
     {...disabled ? { 'aria-disabled': 'true' } : {}}
   >
-    {icon && iconPosition === 'left' && <span class="mr-2">{iconElement}</span>}
     {text}
-    {icon && iconPosition === 'right' && <span class="ml-2">{iconElement}</span>}
   </a>
 ) : (
   <button
@@ -63,8 +53,6 @@ const iconElement = icon ? <Icon name={icon} class="w-4 h-4" /> : null;
     class={classes}
     disabled={disabled}
   >
-    {icon && iconPosition === 'left' && <span class="mr-2">{iconElement}</span>}
     {text}
-    {icon && iconPosition === 'right' && <span class="ml-2">{iconElement}</span>}
   </button>
 )}
