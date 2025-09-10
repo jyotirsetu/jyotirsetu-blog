@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "description": "JyotirSetu Cosmic Insights Blog - Astrology, Palmistry & Numerology",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "npx astro dev",
+    "start": "npx astro dev",
+    "build": "node build.js",
+    "preview": "npx astro preview",
+    "astro": "npx astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
@@ -40,5 +40,8 @@
     "type": "git",
     "url": "https://github.com/jyotirsetu/blog"
   },
-  "homepage": "https://blog.jyotirsetu.com"
+  "homepage": "https://blog.jyotirsetu.com",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
