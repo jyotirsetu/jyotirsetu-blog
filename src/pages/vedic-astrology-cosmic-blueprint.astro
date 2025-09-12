@@ -1,0 +1,97 @@
+---
+import JyotirsetuBlogLayout from '../layouts/JyotirsetuBlogLayout.astro';
+
+const post = {
+  title: "Understanding Vedic Astrology: Your Cosmic Blueprint",
+  description: "Discover the ancient wisdom of Vedic Astrology and how it can guide your life journey with precision and clarity.",
+  author: "Astrologer Punita Sharma",
+  readTime: "8 min read",
+  category: "Vedic Astrology",
+  date: "2024-01-15",
+  image: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+};
+---
+
+<JyotirsetuBlogLayout 
+  metadata={{
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      image: post.image
+    }
+  }}
+>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-blue-900 dark:via-purple-900 dark:to-indigo-900 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 mb-4">
+          {post.category}
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          {post.title}
+        </h1>
+        <div class="flex items-center justify-center space-x-4 text-gray-600 dark:text-gray-300">
+          <span>{post.author}</span>
+          <span>•</span>
+          <span>{post.readTime}</span>
+          <span>•</span>
+          <span>{post.date}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <img src={post.image} alt={post.title} class="w-full h-64 object-cover rounded-lg mb-8" />
+      
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+        Vedic Astrology, also known as Jyotish, is an ancient system of astrology that originated in India over 5,000 years ago. Unlike Western astrology, Vedic astrology uses the sidereal zodiac and provides deeper insights into your life's purpose, challenges, and opportunities.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">What is Vedic Astrology?</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        Vedic Astrology is based on the belief that the positions of planets at the time of your birth influence your personality, behavior, and life events. It uses a complex system of 27 lunar mansions (Nakshatras) and 12 zodiac signs to create a detailed birth chart called a "Kundli" or "Janam Kundli."
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Components of Vedic Astrology</h2>
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-6 space-y-2">
+        <li><strong>Rashi (Moon Sign):</strong> Your emotional nature and inner self</li>
+        <li><strong>Nakshatra (Lunar Mansion):</strong> Your spiritual purpose and life path</li>
+        <li><strong>Grahas (Planets):</strong> Different aspects of your personality and life</li>
+        <li><strong>Houses (Bhavas):</strong> Different areas of life like career, relationships, health</li>
+        <li><strong>Dasha System:</strong> Planetary periods that influence different phases of life</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">How Vedic Astrology Can Guide You</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        Vedic Astrology provides insights into your strengths, weaknesses, and the best times to take important decisions. It can help you understand your relationships, career path, health patterns, and spiritual growth opportunities.
+      </p>
+
+      <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-6 my-8">
+        <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Expert Insight</h3>
+        <p class="text-blue-800 dark:text-blue-200">
+          "Vedic Astrology is not about predicting the future, but about understanding your cosmic blueprint and making informed decisions that align with your true nature and life purpose." - Astrologer Punita Sharma
+        </p>
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Getting Your Vedic Astrology Reading</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        To get an accurate Vedic astrology reading, you need your exact birth time, date, and place. Our expert astrologers can create your detailed birth chart and provide personalized insights into your life's journey.
+      </p>
+
+      <div class="text-center mt-12">
+        <a href="/contact" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+          Get Your Vedic Astrology Reading
+        </a>
+      </div>
+    </div>
+  </article>
+
+</JyotirsetuBlogLayout>

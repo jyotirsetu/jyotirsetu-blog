@@ -1,0 +1,290 @@
+---
+// ThemeProvider.astro - Professional theme management system
+---
+
+<script is:inline>
+  // Professional Theme Management System for JyotirSetu Blog
+  (function() {
+    'use strict';
+    
+    // Theme configuration
+    const THEME_CONFIG = {
+      storageKey: 'jyotirsetu-theme',
+      defaultTheme: 'system',
+      enableSystemTheme: true,
+      enablePersistence: true,
+      enableSmoothTransitions: true,
+      enableMetaThemeColor: true
+    };
+    
+    // Available themes
+    const THEMES = {
+      light: 'light',
+      dark: 'dark',
+      system: 'system'
+    };
+    
+    // Theme management functions
+    const ThemeManager = {
+      // Get stored theme preference
+      getStoredTheme() {
+        if (!THEME_CONFIG.enablePersistence) return THEME_CONFIG.defaultTheme;
+        try {
+          return localStorage.getItem(THEME_CONFIG.storageKey) || THEME_CONFIG.defaultTheme;
+        } catch (e) {
+          console.warn('Could not access localStorage:', e);
+          return THEME_CONFIG.defaultTheme;
+        }
+      },
+      
+      // Set stored theme preference
+      setStoredTheme(theme) {
+        if (!THEME_CONFIG.enablePersistence) return;
+        try {
+          localStorage.setItem(THEME_CONFIG.storageKey, theme);
+        } catch (e) {
+          console.warn('Could not save to localStorage:', e);
+        }
+      },
+      
+      // Get system theme preference
+      getSystemTheme() {
+        if (!THEME_CONFIG.enableSystemTheme) return 'light';
+        try {
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } catch (e) {
+          console.warn('Could not detect system theme:', e);
+          return 'light';
+        }
+      },
+      
+      // Apply theme to document
+      applyTheme(theme) {
+        const html = document.documentElement;
+        const body = document.body;
+        
+        if (!html) return;
+        
+        // Remove existing theme classes
+        html.classList.remove('light', 'dark');
+        
+        // Determine actual theme to apply
+        let actualTheme = theme;
+        if (theme === 'system') {
+          actualTheme = this.getSystemTheme();
+        }
+        
+        // Apply theme class
+        html.classList.add(actualTheme);
+        
+        // Apply theme to body if it exists
+        if (body) {
+          body.classList.remove('light', 'dark');
+          body.classList.add(actualTheme);
+        }
+        
+        // Update meta theme-color for mobile browsers
+        if (THEME_CONFIG.enableMetaThemeColor) {
+          this.updateMetaThemeColor(actualTheme);
+        }
+        
+        // Dispatch theme change event
+        this.dispatchThemeChangeEvent(actualTheme, theme);
+        
+        return actualTheme;
+      },
+      
+      // Update meta theme-color
+      updateMetaThemeColor(theme) {
+        try {
+          let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+          if (!metaThemeColor) {
+            metaThemeColor = document.createElement('meta');
+            metaThemeColor.name = 'theme-color';
+            document.head.appendChild(metaThemeColor);
+          }
+          
+          // Set theme color based on theme
+          if (theme === 'dark') {
+            metaThemeColor.content = '#1e293b'; // dark gray
+          } else {
+            metaThemeColor.content = '#ffffff'; // white
+          }
+        } catch (e) {
+          console.warn('Could not update meta theme-color:', e);
+        }
+      },
+      
+      // Dispatch theme change event
+      dispatchThemeChangeEvent(actualTheme, requestedTheme) {
+        try {
+          const event = new CustomEvent('themechange', {
+            detail: {
+              actualTheme: actualTheme,
+              requestedTheme: requestedTheme,
+              timestamp: Date.now()
+            }
+          });
+          document.dispatchEvent(event);
+        } catch (e) {
+          console.warn('Could not dispatch theme change event:', e);
+        }
+      },
+      
+      // Initialize theme system
+      initTheme() {
+        const storedTheme = this.getStoredTheme();
+        const actualTheme = this.applyTheme(storedTheme);
+        
+        // Set up system theme change listener
+        if (THEME_CONFIG.enableSystemTheme && storedTheme === 'system') {
+          try {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', () => {
+              if (this.getStoredTheme() === 'system') {
+                this.applyTheme('system');
+              }
+            });
+          } catch (e) {
+            console.warn('Could not set up system theme listener:', e);
+          }
+        }
+        
+        return actualTheme;
+      }
+    };
+    
+    // Initialize theme immediately to prevent flash
+    function quickInitTheme() {
+      try {
+        const storedTheme = ThemeManager.getStoredTheme();
+        if (storedTheme !== 'system') {
+          ThemeManager.applyTheme(storedTheme);
+        } else {
+          // For system theme, apply immediately based on system preference
+          const systemTheme = ThemeManager.getSystemTheme();
+          ThemeManager.applyTheme(systemTheme);
+        }
+      } catch (e) {
+        console.warn('Quick theme init failed:', e);
+      }
+    }
+    
+    // Initialize theme when DOM is ready
+    function safeInitTheme() {
+      try {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            ThemeManager.initTheme();
+          });
+        } else {
+          ThemeManager.initTheme();
+        }
+      } catch (e) {
+        console.warn('Safe theme init failed:', e);
+      }
+    }
+    
+    // Expose theme API globally
+    function exposeThemeAPI() {
+      try {
+        window.JyotirSetuTheme = {
+          // Get current theme
+          get: () => ThemeManager.getStoredTheme(),
+          
+          // Set theme
+          set: (theme) => {
+            if (!THEMES[theme]) {
+              console.warn('Invalid theme:', theme);
+              return false;
+            }
+            ThemeManager.setStoredTheme(theme);
+            return ThemeManager.applyTheme(theme);
+          },
+          
+          // Toggle between light and dark
+          toggle: () => {
+            const current = ThemeManager.getStoredTheme();
+            const newTheme = current === 'light' ? 'dark' : 'light';
+            ThemeManager.setStoredTheme(newTheme);
+            return ThemeManager.applyTheme(newTheme);
+          },
+          
+          // Get available themes
+          getAvailable: () => Object.values(THEMES),
+          
+          // Get system theme
+          getSystemTheme: () => ThemeManager.getSystemTheme(),
+          
+          // Get configuration
+          config: THEME_CONFIG
+        };
+      } catch (e) {
+        console.warn('Could not expose theme API:', e);
+      }
+    }
+    
+    // Theme toggle event handler
+    function handleThemeToggle(event) {
+      try {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        if (window.JyotirSetuTheme) {
+          const newTheme = window.JyotirSetuTheme.toggle();
+          console.log('Theme changed to:', newTheme);
+        } else {
+          // Fallback: simple toggle
+          document.documentElement.classList.toggle('dark');
+          const isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+      } catch (e) {
+        console.warn('Theme toggle failed:', e);
+      }
+    }
+    
+    // Set up theme toggle listeners
+    function setupThemeToggleListeners() {
+      try {
+        const toggleButtons = document.querySelectorAll('[data-aw-toggle-color-scheme]');
+        toggleButtons.forEach(button => {
+          button.addEventListener('click', handleThemeToggle);
+        });
+      } catch (e) {
+        console.warn('Could not set up theme toggle listeners:', e);
+      }
+    }
+    
+    // Initialize everything
+    function init() {
+      try {
+        // Quick init to prevent flash
+        quickInitTheme();
+        
+        // Safe init when DOM is ready
+        safeInitTheme();
+        
+        // Expose API
+        exposeThemeAPI();
+        
+        // Set up listeners
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupThemeToggleListeners);
+        } else {
+          setupThemeToggleListeners();
+        }
+        
+        // Also try after a delay as backup
+        setTimeout(setupThemeToggleListeners, 1000);
+        
+      } catch (e) {
+        console.warn('Theme system initialization failed:', e);
+      }
+    }
+    
+    // Start initialization
+    init();
+    
+  })();
+</script>

@@ -1,26 +1,33 @@
 ---
-// Weekly Horoscope Section Component
+// Weekly Horoscope Section Component - Single Page Design
 ---
 
-<div class="weekly-horoscope-section bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 py-16 px-4">
+<div class="weekly-horoscope-section bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 dark:from-purple-900 dark:via-blue-900 dark:to-indigo-900 py-16 px-4">
   <div class="max-w-7xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-sm border border-white/30 dark:border-white/10 mb-6">
+        <span class="text-yellow-400 mr-2">✨</span>
+        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Cosmic Energies Align</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
         Weekly Horoscope
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-        Discover what the stars have in store for you this week. Get personalized insights for all zodiac signs.
+      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        This week brings powerful cosmic energies that will influence all zodiac signs. The alignment of planets creates opportunities for growth, healing, and transformation. Discover what the universe has in store for your sign.
       </p>
+      <div class="mt-4 text-sm text-gray-500 dark:text-gray-400">
+        January 15-21, 2024
+      </div>
     </div>
 
     <!-- Horoscope Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
       <!-- Aries -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♈</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♈</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Aries</h3>
@@ -28,15 +35,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          This week brings opportunities for leadership. Trust your instincts and take bold steps forward in your career.
+          This week brings opportunities for leadership. Trust your instincts and take bold steps forward in your career. Your natural confidence will help you overcome any challenges.
         </p>
       </div>
 
       <!-- Taurus -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♉</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♉</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Taurus</h3>
@@ -44,15 +51,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Focus on stability and long-term goals. Financial planning will be particularly beneficial this week.
+          Focus on stability and long-term goals. Financial planning will be particularly beneficial this week. Your practical approach will lead to steady progress.
         </p>
       </div>
 
       <!-- Gemini -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♊</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♊</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Gemini</h3>
@@ -60,15 +67,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Communication is key this week. Your social connections will open new doors and opportunities.
+          Communication is your strength this week. Express your ideas clearly and network with others. New connections may lead to exciting opportunities.
         </p>
       </div>
 
       <!-- Cancer -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♋</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♋</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Cancer</h3>
@@ -76,15 +83,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Trust your emotional intelligence. Family matters and home life will bring you joy and fulfillment.
+          Your intuition is heightened this week. Trust your gut feelings and focus on family and home matters. Emotional healing is possible now.
         </p>
       </div>
 
       <!-- Leo -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♌</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♌</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Leo</h3>
@@ -92,15 +99,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Your creative energy is at its peak. Express yourself boldly and let your light shine.
+          Your creative energy is at its peak. This is the perfect time to showcase your talents and pursue artistic endeavors. Recognition awaits.
         </p>
       </div>
 
       <!-- Virgo -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♍</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♍</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Virgo</h3>
@@ -108,15 +115,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Attention to detail will serve you well. Focus on health and wellness improvements this week.
+          Attention to detail will serve you well this week. Organize your tasks and focus on health and wellness. Small improvements lead to big results.
         </p>
       </div>
 
       <!-- Libra -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♎</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♎</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Libra</h3>
@@ -124,15 +131,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Balance and harmony are your strengths. Focus on relationships and finding middle ground.
+          Balance is key this week. Focus on harmony in relationships and partnerships. Your diplomatic skills will help resolve conflicts.
         </p>
       </div>
 
       <!-- Scorpio -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♏</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♏</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Scorpio</h3>
@@ -140,15 +147,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Transformation is in the air. Embrace change and let go of what no longer serves you.
+          Transformation is in the air. Embrace change and let go of what no longer serves you. Your intensity will help you achieve your goals.
         </p>
       </div>
 
       <!-- Sagittarius -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♐</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♐</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Sagittarius</h3>
@@ -156,15 +163,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Adventure and learning await. Expand your horizons through travel or new experiences.
+          Adventure and learning opportunities abound. Expand your horizons through travel or education. Your optimism will attract positive experiences.
         </p>
       </div>
 
       <!-- Capricorn -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♑</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-slate-400 to-slate-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♑</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Capricorn</h3>
@@ -172,15 +179,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Your hard work is paying off. Stay disciplined and focused on your long-term goals.
+          Your hard work is paying off. Focus on career advancement and long-term goals. Your determination will lead to significant achievements.
         </p>
       </div>
 
       <!-- Aquarius -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♒</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♒</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Aquarius</h3>
@@ -188,15 +195,15 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Innovation and originality are your allies. Think outside the box and embrace your uniqueness.
+          Innovation and originality are your strengths this week. Think outside the box and embrace your unique perspective. Social connections will be important.
         </p>
       </div>
 
       <!-- Pisces -->
-      <div class="horoscope-card bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+      <div class="horoscope-card bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mr-4">
-            <span class="text-2xl">♓</span>
+          <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mr-4">
+            <span class="text-2xl text-white">♓</span>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pisces</h3>
@@ -204,35 +211,38 @@
           </div>
         </div>
         <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-          Trust your intuition and spiritual insights. Creative and artistic pursuits will bring fulfillment.
+          Trust your intuition and spiritual insights. Creative and artistic pursuits will bring fulfillment. Your compassion will help others this week.
         </p>
       </div>
     </div>
 
     <!-- Call to Action -->
     <div class="text-center">
-      <div class="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg border border-gray-200 dark:border-gray-700">
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+      <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/50">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
           Want Your Personal Horoscope?
         </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-6">
+        <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
           Get a detailed, personalized horoscope reading based on your exact birth details and current planetary positions.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="https://jyotirsetu.com/contact"
             target="_blank"
-            class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200"
+            class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            Book Consultation
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
+            Get Personal Reading
           </a>
           <a
             href="/blog-home?category=weekly-horoscopes"
-            class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-semibold rounded-lg transition-colors duration-200"
+            class="inline-flex items-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-semibold rounded-full transition-all duration-200"
           >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
             Read More Horoscopes
           </a>
         </div>

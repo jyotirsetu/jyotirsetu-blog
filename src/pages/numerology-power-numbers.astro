@@ -1,0 +1,134 @@
+---
+import JyotirsetuBlogLayout from '../layouts/JyotirsetuBlogLayout.astro';
+
+const post = {
+  title: "Numerology: The Power of Numbers in Your Life",
+  description: "Explore how numbers influence your life path, personality, and destiny through the ancient science of numerology.",
+  author: "Astrologer Punita Sharma",
+  readTime: "7 min read",
+  category: "Numerology",
+  date: "2024-01-10",
+  image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+};
+---
+
+<JyotirsetuBlogLayout 
+  metadata={{
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      image: post.image
+    }
+  }}
+>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-blue-900 dark:via-purple-900 dark:to-indigo-900 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 mb-4">
+          {post.category}
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          {post.title}
+        </h1>
+        <div class="flex items-center justify-center space-x-4 text-gray-600 dark:text-gray-300">
+          <span>{post.author}</span>
+          <span>•</span>
+          <span>{post.readTime}</span>
+          <span>•</span>
+          <span>{post.date}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <img src={post.image} alt={post.title} class="w-full h-64 object-cover rounded-lg mb-8" />
+      
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+        Numerology is the mystical study of numbers and their influence on human life. Based on the belief that numbers have vibrational frequencies that affect our lives, numerology can reveal insights about your personality, life path, and future opportunities.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">The Core Numbers in Numerology</h2>
+      
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">1. Life Path Number</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        Your Life Path Number is calculated from your birth date and represents your life's purpose and the lessons you're here to learn. It's the most important number in your numerology chart.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">2. Expression Number</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        Also known as the Destiny Number, this is calculated from your full birth name and reveals your natural talents, abilities, and what you're meant to achieve in this lifetime.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">3. Soul Urge Number</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        Calculated from the vowels in your name, this number reveals your inner desires, motivations, and what truly drives you from within.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">4. Personality Number</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        Calculated from the consonants in your name, this number shows how others perceive you and your outward personality traits.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">The Meaning of Numbers 1-9</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+          <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Number 1</h4>
+          <p class="text-blue-800 dark:text-blue-200 text-sm">Leadership, independence, innovation</p>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+          <h4 class="font-semibold text-green-900 dark:text-green-100 mb-2">Number 2</h4>
+          <p class="text-green-800 dark:text-green-200 text-sm">Cooperation, diplomacy, partnership</p>
+        </div>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+          <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">Number 3</h4>
+          <p class="text-purple-800 dark:text-purple-200 text-sm">Creativity, expression, communication</p>
+        </div>
+        <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+          <h4 class="font-semibold text-orange-900 dark:text-orange-100 mb-2">Number 4</h4>
+          <p class="text-orange-800 dark:text-orange-200 text-sm">Stability, hard work, organization</p>
+        </div>
+        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+          <h4 class="font-semibold text-red-900 dark:text-red-100 mb-2">Number 5</h4>
+          <p class="text-red-800 dark:text-red-200 text-sm">Freedom, adventure, change</p>
+        </div>
+        <div class="bg-pink-50 dark:bg-pink-900/20 p-4 rounded-lg">
+          <h4 class="font-semibold text-pink-900 dark:text-pink-100 mb-2">Number 6</h4>
+          <p class="text-pink-800 dark:text-pink-200 text-sm">Responsibility, nurturing, harmony</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">How to Calculate Your Numbers</h2>
+      
+      <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-6 my-8">
+        <h3 class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">Life Path Number Calculation</h3>
+        <p class="text-green-800 dark:text-green-200 mb-2">
+          Add all digits of your birth date until you get a single digit (except for master numbers 11, 22, 33).
+        </p>
+        <p class="text-green-800 dark:text-green-200 text-sm">
+          Example: March 15, 1990 = 3 + 1 + 5 + 1 + 9 + 9 + 0 = 28 = 2 + 8 = 10 = 1 + 0 = 1
+        </p>
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Using Numerology in Daily Life</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        Numerology can help you choose auspicious dates for important events, understand relationship compatibility, and make decisions that align with your life path. It's a powerful tool for self-discovery and personal growth.
+      </p>
+
+      <div class="text-center mt-12">
+        <a href="/contact" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+          Get Your Numerology Reading
+        </a>
+      </div>
+    </div>
+  </article>
+
+</JyotirsetuBlogLayout>

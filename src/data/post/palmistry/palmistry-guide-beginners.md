@@ -1,4 +1,4 @@
- ---
+---
 publishDate: 2024-01-10T00:00:00Z
 title: 'Palmistry Guide for Beginners: Reading Your Life Lines'
 excerpt: 'Learn the ancient art of palmistry and discover what your hands reveal about your personality, career, relationships, and life path.'

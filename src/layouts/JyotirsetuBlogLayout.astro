@@ -2,6 +2,7 @@
 import JyotirsetuBlogHeader from '../components/JyotirsetuBlogHeader.astro';
 import JyotirsetuBlogFooter from '../components/JyotirsetuBlogFooter.astro';
 import JyotirsetuBlogFavicons from '../components/JyotirsetuBlogFavicons.astro';
+import ThemeProvider from '../components/ThemeProvider.astro';
 
 export interface Props {
   metadata?: {
@@ -69,52 +70,47 @@ const {
     <!-- Google Fonts - Matching JyotirSetu website -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#3b82f6',
-              secondary: '#8b5cf6',
-              accent: '#ec4899',
-              'jyotirsetu-blue': '#1e40af',
-              'jyotirsetu-purple': '#7c3aed',
-              'jyotirsetu-gold': '#f59e0b',
-            },
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-              heading: ['Poppins', 'ui-sans-serif', 'system-ui'],
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.5s ease-in-out',
-              'slide-up': 'slideUp 0.5s ease-out',
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              slideUp: {
-                '0%': { transform: 'translateY(20px)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-              },
-            },
-          },
-        },
-      }
-    </script>
+    <!-- Tailwind CSS - Local File -->
+    <link rel="stylesheet" href="/tailwind.css" />
     
-    <!-- Custom Styles - Matching JyotirSetu Design -->
+    <!-- Theme Provider -->
+    <ThemeProvider defaultTheme="system" enableSystemTheme={true} />
+    
+    <!-- Custom Styles - Matching Main Website Exactly -->
     <style>
       :root {
-        --jyotirsetu-primary: #1e40af;
-        --jyotirsetu-secondary: #7c3aed;
-        --jyotirsetu-accent: #f59e0b;
-        --jyotirsetu-dark: #1e293b;
-        --jyotirsetu-light: #f8fafc;
+        --aw-font-sans: 'Inter Variable';
+        --aw-font-serif: 'ui-serif';
+        --aw-font-heading: 'Inter Variable';
+
+        --aw-color-primary: rgb(1 97 239);
+        --aw-color-secondary: rgb(1 84 207);
+        --aw-color-accent: rgb(109 40 217);
+
+        --aw-color-text-heading: rgb(0 0 0);
+        --aw-color-text-default: rgb(16 16 16);
+        --aw-color-text-muted: rgb(16 16 16 / 66%);
+        --aw-color-bg-page: rgb(255 255 255);
+
+        --aw-color-bg-page-dark: rgb(3 6 32);
+      }
+
+      .dark {
+        --aw-color-text-heading: rgb(247, 248, 248);
+        --aw-color-text-default: rgb(229 236 246);
+        --aw-color-text-muted: rgb(229 236 246 / 66%);
+        --aw-color-bg-page: rgb(3 6 32);
+      }
+
+      /* Main website CSS utilities */
+      .bg-page {
+        background-color: var(--aw-color-bg-page);
+      }
+      .bg-dark {
+        background-color: var(--aw-color-bg-page-dark);
+      }
+      .text-muted {
+        color: var(--aw-color-text-muted);
       }
       
       body {
@@ -144,10 +140,20 @@ const {
         border: 1px solid rgba(59, 130, 246, 0.1);
       }
       
+      .dark .jyotirsetu-card {
+        background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+      
       .jyotirsetu-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+      }
+      
+      .dark .jyotirsetu-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
       }
       
       /* Cosmic Background Effects */
@@ -239,6 +245,200 @@ const {
         display: block;
       }
       
+      /* Hamburger Animation */
+      [data-aw-toggle-menu] {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+      
+      [data-aw-toggle-menu] svg {
+        transition: all 0.3s ease;
+      }
+      
+      [data-aw-toggle-menu].expanded svg {
+        transform: rotate(90deg);
+      }
+      
+      /* Mobile Menu Styling */
+      .mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+      }
+      
+      .dark .mobile-menu {
+        background: #111827; /* gray-900 to match header */
+        border-top-color: #374151;
+      }
+      
+      .mobile-menu .dropdown-menu {
+        display: none;
+        padding-left: 1rem;
+        background: #f9fafb;
+        border-radius: 0.375rem;
+        margin: 0.25rem 0;
+      }
+      
+      .dark .mobile-menu .dropdown-menu {
+        background: #111827; /* gray-900 to match header */
+      }
+      
+      .mobile-menu .dropdown-menu.active {
+        display: block;
+      }
+      
+      /* Desktop Dropdown Styles */
+      .dropdown {
+        position: relative;
+      }
+      
+      .dropdown-menu {
+        position: fixed;
+        top: auto;
+        left: auto;
+        z-index: 1000;
+        min-width: 200px;
+        background: #111827 !important; /* gray-900 to match header */
+        border: 1px solid #374151;
+        border-radius: 0.375rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+        padding: 0.5rem 0;
+        margin-top: 0.25rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        pointer-events: none;
+        display: none !important;
+        backdrop-filter: none !important;
+      }
+      
+      .dark .dropdown-menu {
+        background: #111827 !important; /* gray-900 to match header */
+        border-color: #374151;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+        backdrop-filter: none !important;
+      }
+      
+      /* Force solid background for all dropdown menus */
+      .dropdown-menu,
+      .dark .dropdown-menu,
+      .light .dropdown-menu {
+        background: #111827 !important; /* gray-900 to match header */
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        opacity: 1 !important;
+        background-color: #111827 !important;
+        background-image: none !important;
+      }
+      
+      /* Additional rules to remove any transparency */
+      .dropdown-menu * {
+        background: transparent !important;
+      }
+      
+      .dropdown-menu li {
+        background: transparent !important;
+      }
+      
+      .dropdown-menu a {
+        background: transparent !important;
+      }
+      
+      /* Override any potential Tailwind classes */
+      .dropdown-menu.bg-white,
+      .dropdown-menu.bg-gray-100,
+      .dropdown-menu.bg-opacity-90,
+      .dropdown-menu.bg-opacity-80,
+      .dropdown-menu.bg-opacity-75,
+      .dropdown-menu.bg-opacity-50,
+      .dropdown-menu.bg-opacity-25,
+      .dropdown-menu.bg-opacity-10 {
+        background: #111827 !important;
+        opacity: 1 !important;
+        background-color: #111827 !important;
+        background-image: none !important;
+      }
+      
+      /* Force solid background for all possible states */
+      .dropdown-menu:not(.hidden) {
+        background: #111827 !important;
+        background-color: #111827 !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      
+      /* Override any inline styles or computed styles */
+      .dropdown-menu[style*="opacity"],
+      .dropdown-menu[style*="background"] {
+        background: #111827 !important;
+        background-color: #111827 !important;
+        opacity: 1 !important;
+      }
+      
+      .dropdown-menu.hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        display: none !important;
+      }
+      
+      .dropdown-menu:not(.hidden) {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block !important;
+      }
+      
+      /* Dropdown link styles for readability */
+      .dropdown-menu a {
+        color: #ffffff !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        display: block;
+        transition: all 0.2s ease;
+      }
+      
+      .dropdown-menu a:hover {
+        color: #ffffff !important;
+        background-color: #374151;
+      }
+      
+      /* Hover effect for desktop */
+      @media (min-width: 768px) {
+        .dropdown:hover .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+      }
+      
+      /* Mobile dropdown styles */
+      @media (max-width: 768px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          background: #f9fafb;
+          margin: 0.25rem 0;
+          padding-left: 1rem;
+        }
+        
+        .dark .dropdown-menu {
+          background: #111827; /* gray-900 to match header */
+        }
+      }
+      
       /* Responsive Design */
       @media (max-width: 768px) {
         .jyotirsetu-card {
@@ -268,11 +468,127 @@ const {
         transform: translateY(0);
       }
     </style>
+    
+    <!-- Mobile Menu JavaScript -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle functionality
+        const toggleButton = document.querySelector('[data-aw-toggle-menu]');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const body = document.body;
+        
+        if (toggleButton && mobileMenu) {
+          toggleButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle mobile menu visibility
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
+            
+            // Toggle hamburger animation
+            toggleButton.classList.toggle('expanded');
+            
+            // Prevent body scroll when menu is open
+            if (mobileMenu.classList.contains('active')) {
+              body.style.overflow = 'hidden';
+            } else {
+              body.style.overflow = '';
+            }
+          });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', function(e) {
+            if (!toggleButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.classList.remove('active');
+              toggleButton.classList.remove('expanded');
+              body.style.overflow = '';
+            }
+          });
+          
+          // Close menu when clicking on menu links
+          const menuLinks = mobileMenu.querySelectorAll('a');
+          menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.classList.remove('active');
+              toggleButton.classList.remove('expanded');
+              body.style.overflow = '';
+            });
+          });
+        }
+        
+        // Dropdown functionality for both desktop and mobile
+        function initDropdowns() {
+          const dropdownButtons = document.querySelectorAll('.dropdown button');
+          console.log('Found dropdown buttons:', dropdownButtons.length);
+          
+          dropdownButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              
+              console.log('Dropdown button clicked');
+              const dropdown = this.closest('.dropdown');
+              const menu = dropdown.querySelector('.dropdown-menu');
+              
+              if (menu) {
+                console.log('Menu found, toggling...');
+                // Close all other dropdowns first
+                document.querySelectorAll('.dropdown-menu').forEach(otherMenu => {
+                  if (otherMenu !== menu) {
+                    otherMenu.classList.add('hidden');
+                    otherMenu.style.display = 'none';
+                  }
+                });
+                
+                // Toggle current dropdown
+                if (menu.classList.contains('hidden')) {
+                  // Show dropdown
+                  const buttonRect = button.getBoundingClientRect();
+                  menu.style.position = 'fixed';
+                  menu.style.top = (buttonRect.bottom + 4) + 'px';
+                  menu.style.left = buttonRect.left + 'px';
+                  menu.style.display = 'block';
+                  menu.style.background = '#111827';
+                  menu.style.backgroundColor = '#111827';
+                  menu.style.opacity = '1';
+                  menu.style.backdropFilter = 'none';
+                  menu.style.webkitBackdropFilter = 'none';
+                  menu.classList.remove('hidden');
+                } else {
+                  // Hide dropdown
+                  menu.classList.add('hidden');
+                  menu.style.display = 'none';
+                }
+                console.log('Menu classes after toggle:', menu.className);
+              } else {
+                console.log('Menu not found');
+              }
+            });
+          });
+        }
+        
+        // Initialize dropdowns
+        initDropdowns();
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.classList.add('hidden');
+              menu.style.display = 'none';
+            });
+          }
+        });
+      });
+    </script>
   </head>
-  <body class="min-h-full bg-gray-50 text-gray-900 antialiased">
+  <body class="antialiased text-default bg-page tracking-tight">
     <!-- Header -->
     <JyotirsetuBlogHeader 
-      isSticky={true}
+      isSticky={false}
       showToggleTheme={true}
       position="center"
     />
@@ -287,43 +603,6 @@ const {
       links={[]}
       secondaryLinks={[]}
       socialLinks={[]}
-      theme="light"
     />
-    
-    <!-- Scripts -->
-    <script>
-      // Mobile menu toggle
-      document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) {
-          mobileMenuButton.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.classList.toggle('hidden');
-          });
-        }
-        
-        // Scroll reveal animation
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-            }
-          });
-        }, observerOptions);
-        
-        // Observe all scroll-reveal elements
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-          observer.observe(el);
-        });
-      });
-    </script>
   </body>
 </html>

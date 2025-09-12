@@ -3,6 +3,7 @@ import Logo from './JyotirsetuBlogLogo.astro';
 import ToggleTheme from './JyotirsetuBlogToggleTheme.astro';
 import ToggleMenu from './JyotirsetuBlogToggleMenu.astro';
 import Button from './JyotirsetuBlogButton.astro';
+import type { CallToAction } from '../types';
 
 interface Link {
   text?: string;
@@ -66,16 +67,16 @@ const mainWebsiteLinks = [
     ],
   },
   {
+    text: 'Blog',
+    href: '/blog',
+  },
+  {
     text: 'Testimonials',
     href: 'https://jyotirsetu.com/testimonials',
   },
   {
     text: 'Contact',
     href: 'https://jyotirsetu.com/contact',
-  },
-  {
-    text: 'Blog',
-    href: '/',
   },
 ];
 
@@ -91,8 +92,8 @@ const mainWebsiteActions = [
 
 <header
   class:list={[
-    { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    { 'fixed top-0': isSticky, relative: !isSticky, dark: isDark },
+    'z-40 flex-none mx-auto w-full border-b border-gray-200 dark:border-gray-700 transition-[opacity] ease-in-out bg-white dark:bg-gray-900 shadow-sm overflow-visible',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
@@ -100,7 +101,7 @@ const mainWebsiteActions = [
   <div class="absolute inset-0"></div>
   <div
     class:list={[
-      'relative text-default py-1 px-3 md:px-6 mx-auto w-full',
+      'relative text-gray-900 dark:text-white py-3 px-3 md:px-6 mx-auto w-full',
       {
         'md:flex md:justify-between': position !== 'center',
       },
@@ -113,9 +114,7 @@ const mainWebsiteActions = [
     ]}
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href="/">
-        <Logo />
-      </a>
+      <Logo />
       <!-- Mobile Header Buttons - Always Visible -->
       <div class="flex items-center md:hidden">
         <div class="flex items-center mr-2">
@@ -123,7 +122,7 @@ const mainWebsiteActions = [
           <!-- Call Icon -->
           <a
             href="tel:+919266991298"
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center ml-2"
+            class="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center ml-2"
             aria-label="Call Us"
             title="Call +91 9266991298"
           >
@@ -136,7 +135,7 @@ const mainWebsiteActions = [
       </div>
     </div>
     <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-gray-900 dark:text-white overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
       aria-label="Main navigation"
     >
       <ul
@@ -149,20 +148,20 @@ const mainWebsiteActions = [
                 <>
                   <button
                     type="button"
-                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-4 py-3 flex items-center whitespace-nowrap transition-colors duration-200"
                   >
                     {text}{' '}
                     <svg class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                  <ul class="dropdown-menu hidden">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
                           class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
+                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap transition-colors duration-200',
+                            { 'text-blue-600 dark:text-blue-400 font-semibold': href2 === currentPath },
                           ]}
                           href={href2}
                           target={href2.startsWith('http') ? '_blank' : '_self'}
@@ -176,8 +175,8 @@ const mainWebsiteActions = [
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
-                    { 'aw-link-active': href === currentPath },
+                    'text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-4 py-3 flex items-center whitespace-nowrap transition-colors duration-200',
+                    { 'text-blue-600 dark:text-blue-400 font-semibold': href === currentPath },
                   ]}
                   href={href}
                   target={href.startsWith('http') ? '_blank' : '_self'}
@@ -190,6 +189,51 @@ const mainWebsiteActions = [
         }
       </ul>
     </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        {
+          mainWebsiteLinks.map(({ text, href, links }) => (
+            <div>
+              {links?.length ? (
+                <div class="dropdown">
+                  <button
+                    type="button"
+                    class="w-full text-left text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium flex items-center justify-between transition-colors duration-200"
+                  >
+                    {text}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu hidden pl-4 space-y-1">
+                    {links.map(({ text: text2, href: href2 }) => (
+                      <a
+                        class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-link dark:hover:text-white"
+                        href={href2}
+                        target={href2.startsWith('http') ? '_blank' : '_self'}
+                      >
+                        {text2}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium block transition-colors duration-200"
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : '_self'}
+                >
+                  {text}
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    
     <div
       class:list={[
         { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
@@ -215,7 +259,7 @@ const mainWebsiteActions = [
           <!-- Call Icon - Desktop Only -->
           <a
             href="tel:+919266991298"
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 items-center ml-2 hidden md:inline-flex"
+            class="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 items-center ml-2 hidden md:inline-flex"
             aria-label="Call Us"
             title="Call +91 9266991298"
           >

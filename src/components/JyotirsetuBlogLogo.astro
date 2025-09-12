@@ -1,54 +1,60 @@
 ---
-// JyotirSetu Blog Logo Component
+// JyotirSetu Blog Logo Component - Matching Main Website
+import logoText from '../assets/images/Logo/JyotirSetu-text.png';
+import logoBlue from '../assets/images/Logo/Jyotirsetu-logo-blue.png';
 ---
 
-<a href="/" class="flex items-center logo-container">
-  <!-- Dark Theme Logo (White/Transparent) -->
+<a href="/" class="flex items-center">
+  <!-- Dark Theme Logo (White/Text) -->
   <img
-    src="https://www.jyotirsetu.com/JyotirSetu%20Full%20Logo%20Transparent.png"
+    src={logoText.src}
     alt="JyotirSetu Logo"
     width={200}
     height={60}
-    class="h-10 md:h-12 w-auto max-w-[180px] md:max-w-[220px] object-contain dark:block hidden"
+    class="h-10 md:h-12 w-auto max-w-[180px] md:max-w-[220px] object-contain block"
     id="logo-dark"
+    style="display: none;"
   />
 
   <!-- Light Theme Logo (Blue) -->
   <img
-    src="https://www.jyotirsetu.com/Jyotirsetu-logo-blue.png"
+    src={logoBlue.src}
     alt="JyotirSetu Logo"
     width={200}
     height={60}
-    class="h-10 md:h-12 w-auto max-w-[180px] md:max-w-[220px] object-contain block dark:hidden"
+    class="h-10 md:h-12 w-auto max-w-[180px] md:max-w-[220px] object-contain"
     id="logo-light"
+    style="display: block;"
   />
 </a>
 
 <style>
-  .logo-container {
-    transform: translateX(-60px);
-    margin-left: -10px;
-    min-height: 50px;
-    padding: 4px 0;
-  }
-
-  @media (min-width: 768px) {
-    .logo-container {
-      transform: translateX(-340px);
-      margin-left: -30px;
-      min-height: 60px;
-      padding: 6px 0;
-    }
-  }
-
-  /* Smooth logo transitions */
-  .logo-container img {
+  /* Smooth logo transitions and consistent sizing */
+  a img {
     transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Both logos - Consistent sizing for smooth theme switching */
+  #logo-light,
+  #logo-dark {
+    height: 2.5rem !important; /* h-10 */
+    width: 12rem !important; /* consistent width */
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  @media (min-width: 768px) {
+    /* Both logos - Desktop consistent sizing */
+    #logo-light,
+    #logo-dark {
+      height: 3rem !important; /* md:h-12 */
+      width: 14rem !important; /* consistent width */
+    }
   }
 </style>
 
-<script>
-  // Theme-based logo switching
+<script is:inline>
+  // Theme-based logo switching - Integrated with ThemeProvider
   function updateLogoVisibility() {
     const logoDark = document.getElementById('logo-dark');
     const logoLight = document.getElementById('logo-light');
@@ -69,24 +75,17 @@
     }
   }
 
-  // Update logo on page load
-  document.addEventListener('DOMContentLoaded', updateLogoVisibility);
-
   // Update logo when theme changes
+  document.addEventListener('themechange', updateLogoVisibility);
+  
+  // Update logo on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateLogoVisibility);
+  } else {
+    updateLogoVisibility();
+  }
+
+  // Update logo when Astro page loads
   document.addEventListener('astro:page-load', updateLogoVisibility);
-
-  // Watch for theme changes
-  const observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        updateLogoVisibility();
-      }
-    });
-  });
-
-  // Start observing the document element for class changes
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['class'],
-  });
 </script>
+

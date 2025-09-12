@@ -1,0 +1,741 @@
+---
+import JyotirsetuBlogLayout from '../layouts/JyotirsetuBlogLayout.astro';
+---
+
+<JyotirsetuBlogLayout 
+  metadata={{
+    title: "All Blog Posts | JyotirSetu Astrology Blog",
+    description: "Explore all our astrology blog posts covering Vedic astrology, gemstones, festivals, predictions, and spiritual guidance.",
+    keywords: "astrology blog posts, Vedic astrology articles, spiritual guidance blog, JyotirSetu blog"
+  }}
+>
+
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Navigation Breadcrumb -->
+    <nav class="mb-8">
+      <div class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
+        <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          Home
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="text-gray-900 dark:text-white font-medium">Blog</span>
+      </div>
+    </nav>
+
+    <!-- Back to Blog Home Button -->
+    <div class="mb-8">
+      <a
+        href="/"
+        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-300 font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Blog Home
+      </a>
+    </div>
+
+    <!-- Page Header -->
+    <header class="text-center max-w-4xl mx-auto mb-16">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full mb-6">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 dark:from-white dark:via-blue-100 dark:to-indigo-100 bg-clip-text text-transparent mb-6">
+        All Blog Posts
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Discover our complete collection of astrology articles, guides, and insights from expert astrologers
+      </p>
+    </header>
+
+    <!-- All Blog Posts Professional Grid -->
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Blog Post 1 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="remedies">
+        <a href="/shani-sade-sati-phases-remedies" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1441726812/photo/blue-dreamy-vishnu-god-wallpaper-big-statue-of-god-vishnu-image-hd.jpg?s=612x612&w=0&k=20&c=wrb6mMwwMDTQ-jYf7bE6DGbrtL__9nUJrf_-G4oqIx8="
+              alt="Shani Sade Sati Phases and Remedies"
+              class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+                Saturn Transit
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Shani Sade Sati: Meaning, Phases, and Remedies
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Understand Shani Sade Sati, its phases, effects on life, and simple remedies to manage Saturn's energy with balance.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="remedies">
+        <a href="/rahu-ketu-dosh-effects-remedies" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://static.toiimg.com/thumb/msid-119108112,width-400,resizemode-4/119108112.jpg"
+              alt="Rahu Ketu Dosh Effects and Remedies"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200">
+                Shadow Planets
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Rahu-Ketu Dosh Explained: Effects and Solutions
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn about Rahu-Ketu dosh, how it affects life, and simple remedies to reduce its negative influence.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="remedies">
+        <a href="/gemstones-vedic-astrology-guide" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1627289601745-5813e24c9bc1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGdlbXN0b25lfGVufDB8MHwwfHx8Mg%3D%3D"
+              alt="Gemstones in Vedic Astrology Guide"
+              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200">
+                Gemstone Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Role of Gemstones in Indian Astrology: Which One is Right for You?
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Discover how gemstones work in astrology, their planetary powers, and tips to choose the right gemstone for you.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 4 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="remedies">
+        <a href="/moon-signs-indian-festivals-janmashtami" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1404806218/vector/happy-janmashtami-festival-typographic-vector-design-with-text-pots-lord-krishna-flute.jpg?s=612x612&w=0&k=20&c=DwMg4BvAabZvCTItipWZKr60VnDe2VUg-ttLfao43Os="
+              alt="Moon Signs and Indian Festivals"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200">
+                Festival Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              How Moon Signs Influence Indian Festivals and Rituals (Janmashtami Focus)
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn how Moon signs shape Indian festivals, with a focus on Janmashtami 2024 and rituals for each zodiac.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 5 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/astrology-predictions-2024-india" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t3.ftcdn.net/jpg/13/69/07/06/240_F_1369070621_B7Hz3s7gTe5Oo45L2NmMqyQ6MYROtvcI.jpg"
+              alt="Astrology Predictions 2024 India"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200">
+                Yearly Predictions
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Astrology Predictions for 2024 in India
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Explore 2024 astrology predictions for India, including career, marriage, finance, and zodiac-wise insights.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>9 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 6 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="festivals">
+        <a href="/navratri-2024-planetary-energy-significance" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t4.ftcdn.net/jpg/02/26/44/97/240_F_226449794_RhPRNQhftuSOWfy3xJi5lI7pjaCTuNTB.jpg"
+              alt="Navratri 2024 Planetary Energy"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200">
+                Festival Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Navratri 2024: Planetary Energy and Spiritual Significance
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Discover the astrological meaning of Navratri 2024, the role of nine planets, and daily rituals for positivity.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 7 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/vedic-astrology-beginners-guide" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/988544674/photo/birth-chart-made-by-vedic-indian-astrologer.jpg?s=2048x2048&w=is&k=20&c=B3x1iiz5ywmZePjfucb_b8jO9UccRwcVCdM56gyNYKk="
+              alt="Vedic Astrology Guide for Beginners"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                Vedic Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              What is Vedic Astrology? Complete Guide for Beginners in India
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn the basics of Vedic Astrology, its history, planets, and why millions in India still follow Jyotish for guidance in life.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 8 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="marriage">
+        <a href="/kundli-milan-marriage-astrology" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1645354845418-b47a1bda0c15?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Kundli Milan Marriage Astrology"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">
+                Marriage Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Importance of Kundli Milan in Indian Marriages
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Discover why Kundli Milan is vital in Indian marriages, its role in compatibility, doshas, and modern views on horoscope matching.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 9 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="festivals">
+        <a href="/diwali-2023-astrological-significance" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/2165504826/photo/close-up-of-hand-holding-illuminated-candles.webp?a=1&b=1&s=612x612&w=0&k=20&c=rlgvlvsC5-YkDnl5_ew6y8y3jqmHlK69dVtQuCpploM="
+              alt="Diwali 2023 Astrological Significance"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200">
+                Festival Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Diwali 2023: Astrological Significance of the Festival of Lights
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Explore the astrological significance of Diwali 2023, Lakshmi puja, planetary guidance, and simple remedies for prosperity.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>6 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 10 - Diwali 2025 -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="festivals">
+        <a href="/diwali-2025-prosperity-planetary-guidance" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1706990111/photo/3d-rendering-for-diwali-festival-diwali-deepavali-or-dipavali-the-festival-of-lights-india.jpg?s=612x612&w=0&k=20&c=jlgVcR7XJaBYMDfKkA5apURzDBNXgv9Kad7a1SMLSVY="
+              alt="Diwali 2025 prosperity and planetary guidance"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200">
+                Festival Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Diwali 2025: How to Attract Prosperity with Planetary Guidance
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn how Diwali 2025 aligns with planetary energy and how to invite wealth, success, and positivity into your life.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 11 - Align Life with Cosmic Energy -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/align-life-cosmic-energy-astrology" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t3.ftcdn.net/jpg/15/65/84/88/240_F_1565848870_geKLDORfoXY6YHJffGW7TQClqsmf93GT.jpg"
+              alt="Align life with cosmic energy"
+              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200">
+                Spiritual Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              How to Align Your Life with Cosmic Energy
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn practical tips to align your daily life with planetary and cosmic energy for balance, growth, and wellbeing.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 12 - Astrology in Digital Age -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/astrology-relevance-digital-age" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1438125502/photo/a-woman-holds-a-mobile-phone-with-an-astrological-application.jpg?s=612x612&w=0&k=20&c=EgHN_MCMxXKWNkOoxLEAUEnZXSCsPpmKy1EVxbwDeRI="
+              alt="Astrology relevance in digital age"
+              class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                Modern Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Why Astrology Still Matters in the Digital Age
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+              Explore why astrology remains meaningful in today's digital world and how Vedic insights guide decisions and growth.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 13 - Property Buying -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/best-time-buy-property-vedic-astrology-2025" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1360375862/photo/printed-natal-chart-with-astrology-moon-with-a-toy-house-in-the-background.jpg?s=612x612&w=0&k=20&c=AYr35z_QMvVzA-jnySqg3_lf8HZ49Xctwws_3qzQvjw="
+              alt="Best time to buy property with Vedic astrology"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">
+                Property Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Best Time to Buy Property as per Vedic Astrology (Delhi & NCR Focus)
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Discover the most auspicious dates for buying property in 2025 according to Vedic astrology for Delhi & NCR buyers.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 14 - Career Planets -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="career">
+        <a href="/planets-control-career-vedic-astrology" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t4.ftcdn.net/jpg/16/56/82/95/240_F_1656829551_WjOb9oVOgovBW5Hc6ugqpzy2Di7hQzRi.jpg"
+              alt="Planets controlling career in Vedic astrology"
+              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200">
+                Career Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Which Planet Controls Career in Vedic Astrology?
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn which planets influence career, success, and professional growth in Vedic astrology. Simple guide for students and professionals.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 15 - Government Jobs -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="career">
+        <a href="/astrology-government-job-aspirants-2025" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t3.ftcdn.net/jpg/03/18/96/28/240_F_318962839_gvfxw84aEWCqUqgtADYsxSgY6uZXlQxI.jpg"
+              alt="Astrology for government job aspirants"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                Career Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Astrology for Government Job Aspirants: Insights from Vedic Astrology
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Discover how Vedic astrology helps government job aspirants plan, prepare, and improve their chances of success.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 16 - Business Astrology -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="business">
+        <a href="/kundli-business-decisions-entrepreneurs-haryana" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1471473678/photo/serious-woman-consulting-on-horoscope-sign-astrological-forecast.jpg?s=612x612&w=0&k=20&c=ZZJjciQKluIpJO7RWF8i-EwUA5NrPJq_wqCs6be-HII="
+              alt="Kundli for business decisions and entrepreneurs"
+              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">
+                Business Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              How Kundli Helps in Business Decisions for Entrepreneurs in Haryana
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn how Vedic astrology and kundli analysis can guide business decisions for entrepreneurs in Haryana, Delhi & NCR.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 17 - Astrology & Numerology -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="numerology">
+        <a href="/astrology-numerology-indian-perspective-destiny" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/1475622084/photo/numerology-numbers-on-the-table-astrology-selective-focus.jpg?s=612x612&w=0&k=20&c=6dLEDeRoyQ-NWPf-j0NpklntmzoYwG_HHjA6-Q1ZAS4="
+              alt="Astrology and numerology for destiny"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200">
+                Numerology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Astrology and Numerology: Indian Perspective for Destiny
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Understand how astrology and numerology together reveal life patterns, destiny, and guidance for personal and professional growth.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 18 - Mangal Dosha -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="marriage">
+        <a href="/mangal-dosha-marriage-remedies-explained" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://media.istockphoto.com/id/2187101267/photo/offering-prayers-to-the-holy-fire-during-a-hindu-wedding-ceremony.jpg?s=612x612&w=0&k=20&c=QWi4dGqi5alkiW2WfgDpnKHyJGUzNyEpil4SpUJiwfM="
+              alt="Mangal Dosha and marriage remedies"
+              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200">
+                Marriage Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Mangal Dosha in Marriage: Causes and Remedies Explained Simply
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Learn about Mangal Dosha, its effects on marriage, myths, and simple remedies for a harmonious married life.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 19 - Stress Management -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/astrology-stress-management-modern-life" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t4.ftcdn.net/jpg/04/89/33/03/240_F_489330398_pafol7DsiRJWAoCEDgN25hSr2NjxJDo2.jpg"
+              alt="Astrology for stress management"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">
+                Wellness Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Astrology for Stress Management in Modern Life
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Discover how astrology can guide stress relief, mental peace, and daily practices for a balanced modern life.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 20 - Raksha Bandhan -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="festivals">
+        <a href="/raksha-bandhan-2025-astrological-insights" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t3.ftcdn.net/jpg/15/71/51/04/240_F_1571510461_bpPOUIvu921Nki595Gb838XXPEjMV9B1.jpg"
+              alt="Raksha Bandhan 2025 astrological insights"
+              class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200">
+                Festival Astrology
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Raksha Bandhan 2025: Astrological Insights on Sibling Bonds
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+              Explore astrological insights on sibling relationships and rituals for Raksha Bandhan 2025.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 21 - Astrology Myths -->
+      <article class="masonry-item bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer" data-category="vedic-astrology">
+        <a href="/astrology-myths-facts-vedic-astrology" class="block">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://t3.ftcdn.net/jpg/05/16/20/12/240_F_516201277_MK8CTLcporPnrKo0GqqyEhOHGl9Sxe4e.jpg"
+              alt="Astrology myths and facts"
+              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200">
+                Astrology Education
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Top Myths About Astrology You Shouldn't Believe
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              Bust common astrology myths, understand real Vedic astrology, and learn why consulting an astrologer matters.
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+              <span>Astrologer Punita Sharma</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+
+
+    <!-- Back to Blog Home Button -->
+    <div class="text-center mt-16 mb-8">
+      <a
+        href="/"
+        class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-300 font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Blog Home
+      </a>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900 rounded-xl p-8 mt-8 text-center">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Need Personalized Astrological Guidance?</h3>
+      <p class="text-gray-700 dark:text-gray-300 mb-6">
+        Get expert consultation from our experienced astrologers for personalized insights and remedies.
+      </p>
+      <a
+        href="https://www.jyotirsetu.com/contact"
+        target="_blank"
+        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+      >
+        Get Astrological Consultation
+      </a>
+    </div>
+  </div>
+
+</JyotirsetuBlogLayout>

@@ -1,0 +1,110 @@
+---
+import JyotirsetuBlogLayout from '../layouts/JyotirsetuBlogLayout.astro';
+
+const post = {
+  title: "Palmistry Guide: Reading Your Life Lines",
+  description: "Learn the art of palmistry and discover what your hands reveal about your personality, career, and relationships.",
+  author: "Astrologer Punita Sharma",
+  readTime: "6 min read",
+  category: "Palmistry",
+  date: "2024-01-12",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+};
+---
+
+<JyotirsetuBlogLayout 
+  metadata={{
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      image: post.image
+    }
+  }}
+>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-blue-900 dark:via-purple-900 dark:to-indigo-900 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 mb-4">
+          {post.category}
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          {post.title}
+        </h1>
+        <div class="flex items-center justify-center space-x-4 text-gray-600 dark:text-gray-300">
+          <span>{post.author}</span>
+          <span>•</span>
+          <span>{post.readTime}</span>
+          <span>•</span>
+          <span>{post.date}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <img src={post.image} alt={post.title} class="w-full h-64 object-cover rounded-lg mb-8" />
+      
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+        Palmistry, also known as chiromancy, is the ancient art of reading palms to gain insights into a person's character, personality, and future. Your hands are like a roadmap of your life, with each line telling a unique story about your journey.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">The Major Lines in Palmistry</h2>
+      
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">1. Life Line</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        The life line curves around the base of your thumb and indicates your vitality, energy levels, and major life changes. Contrary to popular belief, it doesn't predict the length of your life, but rather your quality of life and health.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">2. Head Line</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        The head line runs horizontally across your palm and reveals your intellectual abilities, thinking patterns, and communication style. A long, straight line suggests logical thinking, while a curved line indicates creativity.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">3. Heart Line</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        The heart line runs horizontally across the top of your palm and represents your emotional nature, relationships, and how you express love. It can reveal your approach to relationships and emotional well-being.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">4. Fate Line</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        The fate line runs vertically up the center of your palm and indicates your career path, life purpose, and how external circumstances affect your life. Not everyone has a fate line, and its presence or absence tells its own story.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Reading Your Palm: A Beginner's Guide</h2>
+      
+      <div class="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 p-6 my-8">
+        <h3 class="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-2">Quick Palm Reading Tips</h3>
+        <ul class="text-purple-800 dark:text-purple-200 space-y-2">
+          <li>• Use your dominant hand for current life insights</li>
+          <li>• Use your non-dominant hand for potential and inherited traits</li>
+          <li>• Look for breaks, islands, and branches in lines</li>
+          <li>• Consider the depth and clarity of each line</li>
+        </ul>
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">What Your Hand Shape Reveals</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        Your hand shape also provides valuable insights. Earth hands are practical and grounded, Air hands are intellectual and communicative, Fire hands are energetic and passionate, and Water hands are intuitive and emotional.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Getting a Professional Palm Reading</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        While you can learn the basics of palmistry, a professional palm reader can provide deeper insights by combining palm reading with other divination methods and years of experience.
+      </p>
+
+      <div class="text-center mt-12">
+        <a href="/contact" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+          Get Your Palm Reading
+        </a>
+      </div>
+    </div>
+  </article>
+
+</JyotirsetuBlogLayout>
